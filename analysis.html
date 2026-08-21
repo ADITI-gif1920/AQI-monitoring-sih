@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Analysis</title>
+    <link rel="stylesheet" href="analysis.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+<header class="site-header">
+    <div class="header-logo">
+        🌿 <span>AQI Monitoring System</span>
+    </div>
+
+    <nav class="header-nav">
+        <!--<a href="home.html">Home</a>-->
+        <a href="analysis.html" class="active">Analysis</a>
+        <a href="hotspot.html">Hotspots</a>
+        <a href="index.html">AI Insights</a>
+    </nav>
+</header>
+a
+    <section class="analysis-section">
+        
+<div class="hero-header">
+    <div class="hero-text">
+        <h1>🌿 Pollution Analysis Dashboard</h1>
+        <p class="subtitle">
+            Real-time environmental monitoring for coal mining zones
+        </p>
+    </div>
+
+    <div class="aqi-badge">
+        <span>AQI STATUS</span>
+        <strong>Moderate</strong>
+    </div>
+</div>
+
+        <div class="chart-card">
+            <h2>AQI Trend</h2>
+            <p>Air Quality Index over the last few hours</p>
+
+            <canvas id="aqiChart"></canvas>
+        </div>
+        <div class="pollutant-grid">
+
+    <div class="chart-card">
+        <h2>PM2.5 Levels</h2>
+        <p>Fine particulate matter concentration</p>
+        <canvas id="pm25Chart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>PM10 Levels</h2>
+        <p>Coarse particulate matter concentration</p>
+        <canvas id="pm10Chart"></canvas>
+    </div>
+
+</div>
+<div class="chart-card gas-card">
+    <h2>Gas Levels</h2>
+    <p>Monitoring of harmful gases detected by the sensors</p>
+
+    <canvas id="gasChart"></canvas>
+</div>
+<div class="chart-card historical-card">
+    <h2>Historical Air Quality</h2>
+    <p>Compare air quality readings over previous days</p>
+
+    <canvas id="historicalChart"></canvas>
+</div>
+
+
+    </section>
+    <!-- FOOTER -->
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+            <h2>🌿 AQI Monitoring System</h2>
+            <p>
+                Real-time air quality monitoring for coal mining zones,
+                helping identify pollution levels and environmental hotspots.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <!--<a href="home.html">Home</a>-->
+            <a href="analysis.html">Analysis</a>
+            <a href="hotspot.html">Hotspots</a>
+            <a href="index.html">AI Insights</a>
+        </div>
+
+        <div class="footer-info">
+            <h3>Monitoring System</h3>
+            <p>🌱 Environmental Monitoring</p>
+            <p>📊 AQI & Pollutant Analysis</p>
+            <p>📍 Pollution Hotspot Detection</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 AQI Monitoring System | Smart Environmental Monitoring</p>
+    </div>
+
+</footer>
+    
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="analysis.js"></script>
+
+</body>
+</html>

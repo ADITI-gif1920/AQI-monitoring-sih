@@ -1,0 +1,399 @@
+/* ===== ANALYSIS DASHBOARD COLORS ===== */
+
+:root {
+    --dark-teal: #03232d;
+    --teal: #072e33;
+    --cyan: #0c7075;
+    --aqua: #0f9f9c;
+    --light-blue: #6da5c0;
+    --slate: #294d61;
+}
+
+/* KEEP MINING IMAGE VISIBLE */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3, 35, 45, 0.55),
+            rgba(7, 46, 51, 0.45)
+        ),
+        url("mining-bg.avif");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    color: var(--dark-teal);
+}
+
+/* Main dashboard */
+.analysis-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 25px 60px;
+}
+
+/* ===== HERO ===== */
+
+.hero-header {
+    background: linear-gradient(
+        135deg,
+        rgba(3, 35, 45, 0.92),
+        rgba(15, 159, 156, 0.82)
+    );
+
+    color: white;
+
+    border-radius: 22px;
+    padding: 28px 32px;
+    margin-bottom: 30px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 10px 30px rgba(3,35,45,0.35);
+}
+
+.hero-text h1 {
+    color: white;
+
+    background: none;
+    -webkit-text-fill-color: white;
+
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.hero-text .subtitle {
+    color: #d8f5f3;
+}
+
+/* AQI badge */
+.aqi-badge {
+    background: #39c6bd;
+    color: #03232d;
+
+    border-radius: 16px;
+    padding: 16px 20px;
+}
+
+/* ===== CHART CARDS ===== */
+
+.chart-card {
+    position: relative;
+    overflow: hidden;
+
+    /* Gradient belongs to CARD, NOT CANVAS */
+    background: #ffffff;
+
+    border-radius: 20px;
+    padding: 26px;
+    margin: 22px 0;
+
+    border: 1px solid #39c6bd73;
+
+    box-shadow:
+        0 10px 30px rgba(3,35,45,0.35);
+
+    color:#03232d;
+}
+
+/* Headings */
+.chart-card h2 {
+    color: #39c6bd;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+/* Description */
+.chart-card p {
+    color: #d8f5f3;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* IMPORTANT:
+   Don't apply background/color to canvas */
+.chart-card canvas {
+    display: block;
+
+    width: 100% !important;
+    max-height: 360px;
+
+    background: transparent !important;
+}
+
+/* PM2.5 + PM10 */
+.pollutant-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+/* Historical */
+.historical-card {
+    border-left: 6px solid #39c6bd;
+}
+
+/* Gas */
+.gas-card {
+    border-left: 6px solid #6da5c0;
+}
+
+/* Hover */
+.chart-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(3,35,45,0.45);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .analysis-section {
+        padding: 25px 15px 40px;
+    }
+
+    .hero-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .pollutant-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-card {
+        padding: 18px;
+    }
+
+    .aqi-badge {
+        width: 100%;
+    }
+}
+/* =========================================
+   HEADER
+   ========================================= */
+
+.site-header {
+    width: 100%;
+    padding: 18px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 2px solid #6DA5C0;
+
+    box-shadow: 0 5px 18px rgba(5, 22, 26, 0.15);
+
+    position: relative;
+    z-index: 1000;
+}
+
+/* Logo */
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    color: #03232d;
+}
+
+.header-logo:first-letter {
+    color: #0C7075;
+}
+
+/* Navigation */
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-nav a {
+    text-decoration: none;
+
+    color: #294D61;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 9px 15px;
+
+    border-radius: 10px;
+
+    transition: 0.25s ease;
+}
+
+.header-nav a:hover {
+    background: #E8F4F6;
+    color: #0C7075;
+}
+
+/* Active page */
+
+.header-nav a.active {
+    background: #03232d;
+    color: white;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+    margin-top: 50px;
+
+    background: #03232d;
+
+    color: white;
+
+    border-top: 5px solid #0C7075;
+}
+
+/* Footer main area */
+
+.footer-content {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 45px 30px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1.5fr;
+
+    gap: 50px;
+}
+
+/* Footer headings */
+
+.footer-about h2,
+.footer-links h3,
+.footer-info h3 {
+    margin-top: 0;
+
+    color: #39c6bd;
+}
+
+.footer-about h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.footer-links h3,
+.footer-info h3 {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+/* Footer text */
+
+.footer-about p,
+.footer-info p {
+    color: #c7dfe3;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+/* Footer links */
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-links a {
+    text-decoration: none;
+
+    color: #c7dfe3;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #39c6bd;
+
+    transform: translateX(4px);
+}
+
+/* Bottom footer */
+
+.footer-bottom {
+    border-top: 1px solid rgba(109, 165, 192, 0.35);
+
+    text-align: center;
+
+    padding: 18px 20px;
+
+    background: #05161A;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #9dbdc4;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .site-header {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 18px 20px;
+    }
+
+    .header-nav {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .header-nav a {
+        font-size: 13px;
+
+        padding: 8px 11px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 35px 25px;
+    }
+
+}
