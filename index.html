@@ -1,326 +1,1493 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Pollution Insights</title>
+    <title>AirGuard | AQI Monitoring System</title>
 
-    <link rel="stylesheet" href="ai.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Leaflet Map CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 </head>
 
 <body>
-    <!-- HEADER -->
-<header class="site-header">
 
-    <div class="header-logo">
-        🌿 <span>AQI Monitoring System</span>
-    </div>
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
 
-    <nav class="header-nav">
-        <!--<a href="home.html">Home</a>-->
-        <a href="analysis.html">Analysis</a>
-        <a href="hotspot.html">Hotspots</a>
-        <a href="index.html" class="active">AI Insights</a>
-    </nav>
+    <header class="navbar">
 
-</header>
+        <div class="logo-area">
 
-    <main class="ai-page">
-
-        <!-- HEADER -->
-        <section class="header">
-
-            <div class="header-content">
-                <h1>🤖 AI Pollution Insights</h1>
-
-                <p>
-                    AI-powered analysis of air quality and pollution
-                    around coal mining zones.
-                </p>
+            <div class="logo">
+                Air<span>Guard</span>
             </div>
 
-            <div class="status">
-                <span class="status-dot"></span>
-                System Active
+            <div class="logo-subtitle">
+                Smart Environmental Monitoring System
             </div>
 
-        </section>
+        </div>
+
+        <nav>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#dashboard">
+                Monitoring
+            </a>
+
+            <a href="#pollution-map">
+                Pollution Map
+            </a>
+
+            <a href="#recommendations">
+                Recommendations
+            </a>
+
+            <!-- Citizen must login before reporting -->
+           <a href="citizen-login.html?redirect=complaint" class="report-btn">
+    Report Issue
+</a>
+
+            <a href="#about">
+                About
+            </a>
+            <a href="#trackComplaint">
+    Track Complaint
+</a>
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+        </nav>
+
+    </header>
 
 
-        <!-- CURRENT POLLUTION OVERVIEW -->
-        <section class="overview">
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
 
-            <!-- AQI -->
-            <div class="metric-card">
+    <section id="home" class="hero">
 
-                <div class="icon">🌫️</div>
+        <div class="hero-content">
 
-                <h3>Current AQI</h3>
+            <p class="tagline">
+                SMART ENVIRONMENTAL MONITORING
+            </p>
 
-                <strong id="aqiValue">112</strong>
+            <h1>
+                Monitor Pollution.
+                <br>
+                Protect Communities.
+            </h1>
 
-                <p>Moderate</p>
+            <p class="hero-text">
+                AirGuard uses environmental sensor data to monitor
+                air quality, identify pollution risks and support
+                timely environmental action.
+            </p>
 
-            </div>
+            <div class="hero-buttons">
 
-
-            <!-- PM2.5 -->
-            <div class="metric-card">
-
-                <div class="icon">💨</div>
-
-                <h3>PM2.5 Level</h3>
-
-                <strong id="pm25Value">68</strong>
-
-                <p>µg/m³</p>
-
-            </div>
-
-
-            <!-- GAS -->
-            <div class="metric-card">
-
-                <div class="icon">🏭</div>
-
-                <h3>Gas Level</h3>
-
-                <strong id="gasValue">54</strong>
-
-                <p>Moderate</p>
-
-            </div>
-
-
-            <!-- ZONE -->
-            <div class="metric-card">
-
-                <div class="icon">📍</div>
-
-                <h3>Risk Zone</h3>
-
-                <strong id="zoneValue">Yellow</strong>
-
-                <p>Mining Area</p>
-
-            </div>
-
-        </section>
-
-
-        <!-- AI ANALYSIS -->
-        <section class="ai-card">
-
-            <div class="section-heading">
-
-                <div>
-                    <h2>AI Analysis</h2>
-
-                    <p>
-                        Intelligent interpretation of current
-                        environmental conditions.
-                    </p>
-                </div>
-
-                <button id="generateBtn">
-                    ✨ Generate Insight
+                <button
+                    type="button"
+                    id="checkAQI"
+                    class="primary-btn"
+                >
+                    Check Current AQI
                 </button>
 
+                <!-- Login required before complaint -->
+               <a href="citizen-login.html?redirect=complaint" class="secondary-btn">
+    Report an Issue
+</a>
+
             </div>
 
+        </div>
 
-            <div id="aiResult" class="ai-result">
+    </section>
 
-                <div class="ai-icon">
-                    🤖
-                </div>
+
+    <!-- =====================================================
+         ENVIRONMENTAL STATUS
+    ====================================================== -->
+
+    <section class="environment-status">
+
+        <div class="section-heading">
+
+            <p class="small-heading">
+                CURRENT STATUS
+            </p>
+
+            <h2>
+                Environmental Overview
+            </h2>
+
+            <p>
+                Current environmental conditions from monitored
+                locations.
+            </p>
+
+        </div>
+
+        <div class="status-grid">
+
+            <!-- AIR QUALITY -->
+
+            <div class="status-card">
+
+                <span class="status-icon">
+                    🌫️
+                </span>
 
                 <div>
 
-                    <h3>
-                        Pollution Level: Moderate
-                    </h3>
-
                     <p>
-                        Current AQI and particulate matter levels
-                        indicate moderate pollution in the monitored
-                        mining area. Continuous monitoring is recommended.
+                        Air Quality
                     </p>
 
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- AI PREDICTION -->
-        <section class="prediction-card">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <h2>📈 AI Prediction</h2>
-
-                    <p>
-                        Expected air-quality trend based on
-                        recent sensor readings.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="prediction-content">
-
-                <div class="prediction-box">
-
-                    <span>Next Few Hours</span>
-
-                    <strong id="prediction">
-                        Increasing Risk
+                    <strong id="overviewAQI">
+                        --
                     </strong>
 
+                    <small id="overviewAQIStatus">
+                        Waiting for data
+                    </small>
+
                 </div>
 
+            </div>
 
-                <div class="prediction-box">
 
-                    <span>AI Confidence</span>
+            <!-- DUST RISK -->
+
+            <div class="status-card">
+
+                <span class="status-icon">
+                    💨
+                </span>
+
+                <div>
+
+                    <p>
+                        Dust Risk
+                    </p>
+
+                    <strong id="dustRisk">
+                        --
+                    </strong>
+
+                    <small>
+                        Environmental assessment
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISIBILITY -->
+
+            <div class="status-card">
+
+                <span class="status-icon">
+                    👁️
+                </span>
+
+                <div>
+
+                    <p>
+                        Visibility Risk
+                    </p>
+
+                    <strong id="visibilityRisk">
+                        --
+                    </strong>
+
+                    <small>
+                        Based on environmental conditions
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- MONITORING STATUS -->
+
+            <div class="status-card">
+
+                <span class="status-icon">
+                    📡
+                </span>
+
+                <div>
+
+                    <p>
+                        Monitoring Status
+                    </p>
 
                     <strong>
-                        87%
+                        ACTIVE
                     </strong>
 
-                </div>
-
-
-                <div class="prediction-box">
-
-                    <span>Recommended Action</span>
-
-                    <strong>
-                        Monitor Closely
-                    </strong>
+                    <small>
+                        Sensor network
+                    </small>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- AI RECOMMENDATION -->
-        <section class="recommendation">
+    <!-- =====================================================
+         AIR QUALITY DASHBOARD
+    ====================================================== -->
 
-            <h2>🎯 AI Recommendation</h2>
+    <section id="dashboard" class="dashboard">
+
+        <div class="section-heading">
+
+            <p class="small-heading">
+                LIVE MONITORING
+            </p>
+
+            <h2>
+                Air Quality Dashboard
+            </h2>
+
+            <p>
+                Real-time environmental data collected from
+                monitoring sensors.
+            </p>
+
+        </div>
 
 
-            <div class="recommendation-content">
+        <!-- AQI MAIN CARD -->
 
-                <div class="recommendation-icon">
-                    ⚠️
+        <div class="aqi-main-card">
+
+            <div>
+
+                <p class="card-label">
+                    CURRENT AQI
+                </p>
+
+                <div class="aqi-gauge">
+
+                    <div class="gauge-circle">
+
+                        <div class="gauge-content">
+
+                            <span
+                                id="aqiValue"
+                                class="aqi-number"
+                            >
+                                --
+                            </span>
+
+                            <small>
+                                AQI
+                            </small>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
+                <p
+                    id="aqiStatus"
+                    class="aqi-status"
+                >
+                    Waiting for sensor data...
+                </p>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="location">
+
+                <p>
+                    📍 Location
+                </p>
+
+                <strong id="location">
+                    Bhubaneswar, India
+                </strong>
+
+                <p id="lastUpdated">
+                    Last updated: --
+                </p>
+
+                <div class="sensor-status">
+
+                    <span id="statusDot"></span>
+
+                    <span id="sensorStatus">
+                        Sensor Connected
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             POLLUTANT CARDS
+        ================================================== -->
+
+        <div class="pollution-grid">
+
+            <!-- PM2.5 -->
+
+            <div class="pollution-card">
+
+                <div class="pollution-icon">
+                    PM
+                </div>
+
+                <h3>
+                    PM2.5
+                </h3>
+
+                <p
+                    id="pm25"
+                    class="pollution-value"
+                >
+                    --
+                </p>
+
+                <span>
+                    µg/m³
+                </span>
+
+            </div>
+
+
+            <!-- PM10 -->
+
+            <div class="pollution-card">
+
+                <div class="pollution-icon">
+                    PM
+                </div>
+
+                <h3>
+                    PM10
+                </h3>
+
+                <p
+                    id="pm10"
+                    class="pollution-value"
+                >
+                    --
+                </p>
+
+                <span>
+                    µg/m³
+                </span>
+
+            </div>
+
+
+            <!-- CO -->
+
+            <div class="pollution-card">
+
+                <div class="pollution-icon">
+                    CO
+                </div>
+
+                <h3>
+                    Carbon Monoxide
+                </h3>
+
+                <p
+                    id="co"
+                    class="pollution-value"
+                >
+                    --
+                </p>
+
+                <span>
+                    ppm
+                </span>
+
+            </div>
+
+
+            <!-- NO2 -->
+
+            <div class="pollution-card">
+
+                <div class="pollution-icon">
+                    NO₂
+                </div>
+
+                <h3>
+                    Nitrogen Dioxide
+                </h3>
+
+                <p
+                    id="no2"
+                    class="pollution-value"
+                >
+                    --
+                </p>
+
+                <span>
+                    ppb
+                </span>
+
+            </div>
+
+
+            <!-- SO2 -->
+
+            <div class="pollution-card">
+
+                <div class="pollution-icon">
+                    SO₂
+                </div>
+
+                <h3>
+                    Sulfur Dioxide
+                </h3>
+
+                <p
+                    id="so2"
+                    class="pollution-value"
+                >
+                    --
+                </p>
+
+                <span>
+                    ppb
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ENVIRONMENTAL CONDITIONS
+        ================================================== -->
+
+        <div class="environment-conditions">
+
+            <div class="chart-heading">
 
                 <div>
 
-                    <h3>
-                        Continue Monitoring the Yellow Zone
-                    </h3>
+                    <p class="small-heading">
+                        ENVIRONMENTAL CONDITIONS
+                    </p>
+
+                    <h2>
+                        Weather & Atmospheric Conditions
+                    </h2>
 
                     <p>
-                        PM2.5 and AQI levels are above the safer range.
-                        The system recommends continued monitoring and
-                        checking nearby sensor readings for further increases.
+                        Current environmental conditions affecting
+                        pollution and pollutant dispersion.
                     </p>
 
                 </div>
 
             </div>
 
-        </section>
+
+            <div class="conditions-grid">
+
+                <!-- TEMPERATURE -->
+
+                <div class="condition-card">
+
+                    <div class="condition-icon">
+                        🌡️
+                    </div>
+
+                    <div class="condition-info">
+
+                        <p>
+                            Temperature
+                        </p>
+
+                        <strong id="temperature">
+                            --
+                        </strong>
+
+                        <span>
+                            °C
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-        <!-- BACKEND INTEGRATION NOTE -->
-        <section class="data-note">
+                <!-- HUMIDITY -->
 
-            <h3>
-                🔗 Real-Time Data Integration
-            </h3>
+                <div class="condition-card">
 
-            <p>
-                The current interface uses sample sensor readings.
-                During final integration, these values can be replaced
-                with real-time data received from the backend and
-                environmental sensors.
+                    <div class="condition-icon">
+                        💧
+                    </div>
+
+                    <div class="condition-info">
+
+                        <p>
+                            Humidity
+                        </p>
+
+                        <strong id="humidity">
+                            --
+                        </strong>
+
+                        <span>
+                            %
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WIND SPEED -->
+
+                <div class="condition-card">
+
+                    <div class="condition-icon">
+                        💨
+                    </div>
+
+                    <div class="condition-info">
+
+                        <p>
+                            Wind Speed
+                        </p>
+
+                        <strong id="windSpeed">
+                            --
+                        </strong>
+
+                        <span>
+                            km/h
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WIND DIRECTION -->
+
+                <div class="condition-card">
+
+                    <div class="condition-icon">
+                        🧭
+                    </div>
+
+                    <div class="condition-info">
+
+                        <p>
+                            Wind Direction
+                        </p>
+
+                        <strong id="windDirection">
+                            --
+                        </strong>
+
+                        <span>
+                            direction
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DUST RISK -->
+
+                <div class="condition-card risk-card">
+
+                    <div class="condition-icon">
+                        🌫️
+                    </div>
+
+                    <div class="condition-info">
+
+                        <p>
+                            Dust Risk
+                        </p>
+
+                        <strong id="dashboardDustRisk">
+                            --
+                        </strong>
+
+                        <span>
+                            current assessment
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VISIBILITY -->
+
+                <div class="condition-card risk-card">
+
+                    <div class="condition-icon">
+                        👁️
+                    </div>
+
+                    <div class="condition-info">
+
+                        <p>
+                            Visibility Risk
+                        </p>
+
+                        <strong id="dashboardVisibilityRisk">
+                            --
+                        </strong>
+
+                        <span>
+                            current assessment
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             POLLUTION TREND
+        ================================================== -->
+
+        <div class="chart-section">
+
+            <div class="chart-heading">
+
+                <div>
+
+                    <p class="small-heading">
+                        POLLUTION HISTORY
+                    </p>
+
+                    <h2>
+                        Pollution Trend
+                    </h2>
+
+                    <p>
+                        Monitor changes in air pollution over time.
+                    </p>
+
+                </div>
+
+                <select id="pollutantSelect">
+
+                    <option value="pm25">
+                        PM2.5
+                    </option>
+
+                    <option value="pm10">
+                        PM10
+                    </option>
+
+                    <option value="aqi">
+                        AQI
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas id="pollutionChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         POLLUTION MAP
+    ====================================================== -->
+
+    <section
+        id="pollution-map"
+        class="pollution-map-section"
+    >
+
+        <div class="section-heading">
+
+            <p class="small-heading">
+                ENVIRONMENTAL MONITORING
             </p>
 
-        </section>
-        <!-- =========================================
-     HOW THE SYSTEM WORKS
-     ========================================= -->
+            <h2>
+                Pollution Monitoring Map
+            </h2>
 
-<section class="info-section">
+            <p>
+                View pollution conditions across monitored areas.
+            </p>
 
-    <div class="info-heading">
-        <h2>⚙️ How the Monitoring System Works</h2>
-        <p>
-            From environmental sensors to AI-powered insights, the system
-            converts pollution data into useful information for monitoring
-            mining areas.
-        </p>
+        </div>
+
+
+        <div class="pollution-map-layout">
+
+            <!-- MAP -->
+
+            <div class="map-area">
+
+                <div class="map-header">
+
+                    <div>
+
+                        <strong>
+                            Monitoring Zones
+                        </strong>
+
+                        <span>
+                            Environmental status by zone
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div id="airGuardMap"></div>
+
+
+                <!-- MAP LEGEND -->
+
+                <div class="map-legend">
+
+                    <span>
+                        <i class="legend-dot low"></i>
+                        Low
+                    </span>
+
+                    <span>
+                        <i class="legend-dot moderate"></i>
+                        Moderate
+                    </span>
+
+                    <span>
+                        <i class="legend-dot high"></i>
+                        High
+                    </span>
+
+                    <span>
+                        <i class="legend-dot critical"></i>
+                        Critical
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELECTED ZONE DETAILS -->
+
+            <aside class="zone-details">
+
+                <p class="small-heading">
+                    SELECTED ZONE
+                </p>
+
+                <h3 id="zoneName">
+                    Zone B
+                </h3>
+
+                <p id="zoneDescription">
+                    Mining area with elevated particulate matter.
+                </p>
+
+                <div class="zone-data">
+
+                    <div>
+
+                        <span>
+                            AQI
+                        </span>
+
+                        <strong id="zoneAQI">
+                            142
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PM2.5
+                        </span>
+
+                        <strong id="zonePM25">
+                            72
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PM10
+                        </span>
+
+                        <strong id="zonePM10">
+                            180
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="zone-risk">
+
+                    <span>
+                        Environmental Risk
+                    </span>
+
+                    <strong id="zoneRisk">
+                        HIGH
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    id="zoneDetailsButton"
+                    type="button"
+                >
+                    View Zone Details
+                </button>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         ZONE DETAILS MODAL
+    ================================================== -->
+
+    <div
+        id="zoneDetailsModal"
+        class="zone-modal"
+    >
+
+        <div class="zone-modal-content">
+
+            <button
+                id="closeZoneModal"
+                class="close-zone-modal"
+                type="button"
+            >
+                ×
+            </button>
+
+            <p class="small-heading">
+                ENVIRONMENTAL ZONE REPORT
+            </p>
+
+            <h2 id="modalZoneName">
+                Zone B
+            </h2>
+
+            <p id="modalZoneDescription">
+                Mining area with elevated particulate matter.
+            </p>
+
+            <div class="modal-data-grid">
+
+                <div class="modal-data-card">
+
+                    <span>
+                        AQI
+                    </span>
+
+                    <strong id="modalAQI">
+                        142
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-data-card">
+
+                    <span>
+                        PM2.5
+                    </span>
+
+                    <strong id="modalPM25">
+                        72
+                    </strong>
+
+                    <small>
+                        µg/m³
+                    </small>
+
+                </div>
+
+
+                <div class="modal-data-card">
+
+                    <span>
+                        PM10
+                    </span>
+
+                    <strong id="modalPM10">
+                        180
+                    </strong>
+
+                    <small>
+                        µg/m³
+                    </small>
+
+                </div>
+
+
+                <div class="modal-data-card">
+
+                    <span>
+                        Environmental Risk
+                    </span>
+
+                    <strong id="modalRisk">
+                        HIGH
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="zone-action-box">
+
+                <h3>
+                    Recommended Action
+                </h3>
+
+                <p id="modalRecommendation">
+                    Increase dust suppression and monitor particulate
+                    pollution at regular intervals.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="system-flow">
 
-        <div class="flow-card">
-            <div class="flow-icon">📡</div>
-            <span class="flow-number">01</span>
-            <h3>Environmental Sensors</h3>
-            <p>
-                Sensors collect air-quality readings such as AQI, PM2.5,
-                PM10 and gas levels from monitored locations.
+    <!-- =====================================================
+         RECOMMENDATIONS
+    ====================================================== -->
+
+    <section
+        id="recommendations"
+        class="recommendations"
+    >
+
+        <div class="section-heading">
+
+            <p class="small-heading">
+                SMART ANALYSIS
             </p>
+
+            <h2>
+                What Does This Mean?
+            </h2>
+
         </div>
 
-        <div class="flow-arrow">→</div>
 
-        <div class="flow-card">
-            <div class="flow-icon">💾</div>
-            <span class="flow-number">02</span>
-            <h3>Backend Data</h3>
-            <p>
-                The collected readings are sent to the backend where the
-                latest environmental data can be stored and processed.
-            </p>
+        <div class="recommendation-card">
+
+            <div class="recommendation-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <h3 id="recommendationTitle">
+                    Waiting for AQI data
+                </h3>
+
+                <p id="recommendationText">
+                    Click "Check Current AQI" to analyze the
+                    current air quality.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flow-arrow">→</div>
+    </section>
 
-        <div class="flow-card">
-            <div class="flow-icon">🤖</div>
-            <span class="flow-number">03</span>
-            <h3>AI Analysis</h3>
-            <p>
-                The system interprets the readings and generates an
-                understandable assessment of the pollution condition.
-            </p>
+
+    <!-- =====================================================
+         FILE A COMPLAINT
+         
+         IMPORTANT:
+         Hidden by default.
+         JavaScript will display it only after
+         citizen login.
+    ====================================================== -->
+
+   <section
+    id="complaint"
+    class="complaint-section"
+>
+
+        <div class="complaint-container">
+
+            <div class="complaint-heading">
+
+                <span class="section-tag">
+                    REPORT POLLUTION
+                </span>
+
+                <h2>
+                    Spotted a Pollution Problem?
+                </h2>
+
+                <p>
+                    Help us improve your community by reporting
+                    pollution, smoke, waste burning or other
+                    environmental issues.
+                </p>
+
+            </div>
+
+
+            <div class="complaint-card">
+
+                <form id="complaintForm">
+
+                    <!-- NAME -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="complaintName">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="complaintName"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="complaintEmail">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="complaintEmail"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div class="form-group">
+
+                        <label for="complaintLocation">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="complaintLocation"
+                            placeholder="Enter the pollution location"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- COMPLAINT TYPE -->
+
+                    <div class="form-group">
+
+                        <label for="complaintType">
+                            Type of Pollution
+                        </label>
+
+                        <select
+                            id="complaintType"
+                            required
+                        >
+
+                            <option value="">
+                                Select pollution type
+                            </option>
+
+                            <option value="air">
+                                Air Pollution
+                            </option>
+
+                            <option value="smoke">
+                                Smoke / Burning
+                            </option>
+
+                            <option value="industrial">
+                                Industrial Pollution
+                            </option>
+
+                            <option value="vehicle">
+                                Vehicle Pollution
+                            </option>
+
+                            <option value="waste">
+                                Waste / Garbage Burning
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group">
+
+                        <label for="complaintDescription">
+                            Describe the Problem
+                        </label>
+
+                        <textarea
+                            id="complaintDescription"
+                            rows="5"
+                            placeholder="Describe what you observed..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- IMAGE -->
+
+                    <div class="form-group">
+
+                        <label for="complaintImage">
+                            Upload Evidence (Optional)
+                        </label>
+
+                        <input
+                            type="file"
+                            id="complaintImage"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="complaint-btn"
+                    >
+                        Submit Complaint
+                    </button>
+
+
+                    <!-- MESSAGE -->
+
+                    <p
+                        id="complaintMessage"
+                        class="complaint-message"
+                    ></p>
+
+                </form>
+
+            </div>
+
         </div>
 
-        <div class="flow-arrow">→</div>
+    </section>
+    <!-- =====================================================
+     CITIZEN COMPLAINT TRACKING
+     ===================================================== -->
+<section
+    class="complaint-tracking"
+    id="trackComplaint"
+    style="display: none;"
+>
 
-        <div class="flow-card">
-            <div class="flow-icon">📊</div>
-            <span class="flow-number">04</span>
-            <h3>User Dashboard</h3>
-            <p>
-                The processed information is displayed through readings,
-                recommendations and pollution-zone indicators.
-            </p>
+
+    <div class="tracking-header">
+
+        <span class="tracking-label">
+            CITIZEN SERVICES
+        </span>
+
+        <h2>
+            Track Your Complaint
+        </h2>
+
+        <p>
+            Enter your complaint ID to check the current status
+            of your environmental complaint.
+        </p>
+
+    </div>
+
+
+    <div class="tracking-box">
+
+        <div class="tracking-input-group">
+
+            <label for="trackComplaintId">
+                Complaint ID
+            </label>
+
+            <input
+    type="text"
+    id="trackComplaintId"
+    placeholder="Enter Complaint ID"
+>
+
+<button
+    type="button"
+    id="trackComplaintBtn"
+>
+    🔍 Track Complaint
+</button>
+
+
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div
+    id="complaintTrackingResult"
+    class="tracking-result">
+
+            <div class="tracking-result-header">
+
+                <span>
+                    Complaint Details
+                </span>
+
+                <span
+                    id="citizenStatusBadge"
+                    class="citizen-status-badge">
+                    Pending
+                </span>
+
+            </div>
+
+
+            <div class="tracking-details">
+
+                <div>
+                    <small>Complaint ID</small>
+                    <strong id="trackResultId">--</strong>
+                </div>
+
+                <div>
+                    <small>Location</small>
+                    <strong id="trackResultLocation">--</strong>
+                </div>
+
+                <div>
+                    <small>Complaint Type</small>
+                    <strong id="trackResultType">--</strong>
+                </div>
+
+                <div>
+                    <small>Date Submitted</small>
+                    <strong id="trackResultDate">--</strong>
+                </div>
+
+            </div>
+
+
+            <div class="tracking-message">
+
+                <strong>Status Update</strong>
+
+                <p id="trackResultMessage">
+                    Your complaint is currently under review.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- NOT FOUND -->
+
+        <div
+            id="complaintNotFound"
+            class="complaint-not-found"
+            style="display:none;">
+
+            ❌ Complaint not found.
+
+            <br>
+
+            Please check your Complaint ID and try again.
+
+        </div>
+
+    </div>
+
+
+    <!-- RESOLVED STATISTICS -->
+
+    <div class="citizen-statistics">
+
+        <div class="citizen-stat-card">
+
+            <div class="citizen-stat-icon">
+                📋
+            </div>
+
+            <div>
+
+                <span>
+                    TOTAL COMPLAINTS
+                </span>
+
+                <strong id="citizenTotalComplaints">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="citizen-stat-card">
+
+            <div class="citizen-stat-icon">
+                ⏳
+            </div>
+
+            <div>
+
+                <span>
+                    PENDING COMPLAINTS
+                </span>
+
+                <strong id="citizenPendingComplaints">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="citizen-stat-card">
+
+            <div class="citizen-stat-icon">
+                🔄
+            </div>
+
+            <div>
+
+                <span>
+                    IN PROGRESS
+                </span>
+
+                <strong id="citizenProgressComplaints">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="citizen-stat-card">
+
+            <div class="citizen-stat-icon">
+                ✅
+            </div>
+
+            <div>
+
+                <span>
+                    RESOLVED
+                </span>
+
+                <strong id="citizenResolvedComplaints">
+                    0
+                </strong>
+
+            </div>
+
         </div>
 
     </div>
@@ -328,208 +1495,71 @@
 </section>
 
 
-<!-- =========================================
-     UNDERSTANDING THE READINGS
-     ========================================= -->
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
 
-<section class="info-section">
+    <section
+        id="about"
+        class="about"
+    >
 
-    <div class="info-heading">
-        <h2>📖 Understanding the Pollution Readings</h2>
-        <p>
-            These indicators help users understand the environmental
-            condition of a monitored mining area.
+        <p class="small-heading">
+            ABOUT THE PROJECT
         </p>
-    </div>
 
-    <div class="reading-cards">
+        <h2>
+            Technology for Cleaner Air
+        </h2>
 
-        <div class="reading-card">
-            <div class="reading-icon">🌫️</div>
-            <h3>Air Quality Index</h3>
-            <p>
-                AQI provides an overall indication of the air-quality
-                condition at the monitored location.
-            </p>
-            <span class="reading-note">
-                Higher AQI → Greater pollution concern
-            </span>
-        </div>
-
-        <div class="reading-card">
-            <div class="reading-icon">💨</div>
-            <h3>PM2.5 Level</h3>
-            <p>
-                PM2.5 represents fine particulate matter present in the air.
-                Monitoring it helps identify changes in particulate pollution.
-            </p>
-            <span class="reading-note">
-                Measured in μg/m³
-            </span>
-        </div>
-
-        <div class="reading-card">
-            <div class="reading-icon">🏭</div>
-            <h3>Gas Level</h3>
-            <p>
-                Gas-level readings help monitor changes in the concentration
-                of monitored gases around the mining environment.
-            </p>
-            <span class="reading-note">
-                Based on sensor readings
-            </span>
-        </div>
-
-        <div class="reading-card">
-            <div class="reading-icon">📍</div>
-            <h3>Risk Zone</h3>
-            <p>
-                The risk zone gives users a quick visual indication of the
-                pollution condition of the monitored area.
-            </p>
-            <span class="reading-note">
-                Green • Yellow • Red
-            </span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     FAQ
-     ========================================= -->
-
-<section class="info-section faq-section">
-
-    <div class="info-heading">
-        <h2>❓ Frequently Asked Questions</h2>
         <p>
-            Quick information to help users understand the monitoring
-            dashboard.
+            AirGuard is a smart air quality monitoring platform
+            that collects environmental data from sensors and
+            converts it into understandable information and
+            actionable insights.
         </p>
-    </div>
 
-    <div class="faq-list">
-
-        <details>
-            <summary>
-                What does the AQI value tell me?
-            </summary>
-
-            <p>
-                AQI gives an overall indication of the air-quality condition
-                at the monitored location. As the AQI increases, the level
-                of pollution concern also increases.
-            </p>
-        </details>
+    </section>
 
 
-        <details>
-            <summary>
-                Why are different areas assigned different zones?
-            </summary>
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
-            <p>
-                Pollution conditions can vary from one monitored location
-                to another. The system uses the available environmental
-                readings to help classify areas into different pollution
-                zones.
-            </p>
-        </details>
+    <footer>
 
-
-        <details>
-            <summary>
-                What is the purpose of AI Analysis?
-            </summary>
-
-            <p>
-                AI Analysis converts numerical environmental readings into
-                understandable information. Instead of looking only at
-                numbers, users receive an interpretation of the current
-                pollution condition.
-            </p>
-        </details>
-
-
-        <details>
-            <summary>
-                Where does the monitoring data come from?
-            </summary>
-
-            <p>
-                During the prototype stage, the dashboard can use sample
-                sensor readings. During final integration, these values can
-                be replaced with real-time data received from the backend
-                and environmental sensors.
-            </p>
-        </details>
-
-
-        <details>
-            <summary>
-                What should I do when pollution levels increase?
-            </summary>
-
-            <p>
-                When pollution levels increase, the dashboard can highlight
-                the condition through AI insights, recommendations and
-                zone classification so that the monitored area can receive
-                closer observation.
-            </p>
-        </details>
-
-    </div>
-
-</section>
-<!-- FOOTER -->
-<footer class="site-footer">
-
-    <div class="footer-content">
-
-        <div class="footer-about">
-            <h2>🌿 AQI Monitoring System</h2>
-
-            <p>
-                Real-time air quality monitoring for coal mining zones,
-                helping identify pollution levels and environmental hotspots.
-            </p>
+        <div class="logo">
+            Air<span>Guard</span>
         </div>
 
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-
-            <!--<a href="home.html">Home</a>-->
-            <a href="analysis.html">Analysis</a>
-            <a href="hotspot.html">Hotspots</a>
-            <a href="index.html">AI Insights</a>
-        </div>
-
-        <div class="footer-info">
-            <h3>Monitoring System</h3>
-
-            <p>🌱 Environmental Monitoring</p>
-            <p>📊 AQI & Pollutant Analysis</p>
-            <p>📍 Pollution Hotspot Detection</p>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
         <p>
-            © 2026 AQI Monitoring System | Smart Environmental Monitoring
+            Smart Air Quality Monitoring System
         </p>
-    </div>
 
-</footer>
+        <p>
+            © 2026 AirGuard. Hackathon Project.
+        </p>
 
-    </main>
+    </footer>
 
 
-    <!-- JAVASCRIPT -->
-    <script src="ai.js"></script>
+    <!-- =====================================================
+         JAVASCRIPT LIBRARIES
+    ====================================================== -->
+
+    <!-- Leaflet JS -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+    <!-- Chart.js -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+    <!-- AirGuard JavaScript -->
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
