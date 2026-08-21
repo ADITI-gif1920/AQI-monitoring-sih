@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Pollution Insights</title>
+
+    <link rel="stylesheet" href="ai.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+<header class="site-header">
+
+    <div class="header-logo">
+        🌿 <span>AQI Monitoring System</span>
+    </div>
+
+    <nav class="header-nav">
+        <!--<a href="home.html">Home</a>-->
+        <a href="analysis.html">Analysis</a>
+        <a href="hotspot.html">Hotspots</a>
+        <a href="index.html" class="active">AI Insights</a>
+    </nav>
+
+</header>
+
+    <main class="ai-page">
+
+        <!-- HEADER -->
+        <section class="header">
+
+            <div class="header-content">
+                <h1>🤖 AI Pollution Insights</h1>
+
+                <p>
+                    AI-powered analysis of air quality and pollution
+                    around coal mining zones.
+                </p>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                System Active
+            </div>
+
+        </section>
+
+
+        <!-- CURRENT POLLUTION OVERVIEW -->
+        <section class="overview">
+
+            <!-- AQI -->
+            <div class="metric-card">
+
+                <div class="icon">🌫️</div>
+
+                <h3>Current AQI</h3>
+
+                <strong id="aqiValue">112</strong>
+
+                <p>Moderate</p>
+
+            </div>
+
+
+            <!-- PM2.5 -->
+            <div class="metric-card">
+
+                <div class="icon">💨</div>
+
+                <h3>PM2.5 Level</h3>
+
+                <strong id="pm25Value">68</strong>
+
+                <p>µg/m³</p>
+
+            </div>
+
+
+            <!-- GAS -->
+            <div class="metric-card">
+
+                <div class="icon">🏭</div>
+
+                <h3>Gas Level</h3>
+
+                <strong id="gasValue">54</strong>
+
+                <p>Moderate</p>
+
+            </div>
+
+
+            <!-- ZONE -->
+            <div class="metric-card">
+
+                <div class="icon">📍</div>
+
+                <h3>Risk Zone</h3>
+
+                <strong id="zoneValue">Yellow</strong>
+
+                <p>Mining Area</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI ANALYSIS -->
+        <section class="ai-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>AI Analysis</h2>
+
+                    <p>
+                        Intelligent interpretation of current
+                        environmental conditions.
+                    </p>
+                </div>
+
+                <button id="generateBtn">
+                    ✨ Generate Insight
+                </button>
+
+            </div>
+
+
+            <div id="aiResult" class="ai-result">
+
+                <div class="ai-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        Pollution Level: Moderate
+                    </h3>
+
+                    <p>
+                        Current AQI and particulate matter levels
+                        indicate moderate pollution in the monitored
+                        mining area. Continuous monitoring is recommended.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI PREDICTION -->
+        <section class="prediction-card">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>📈 AI Prediction</h2>
+
+                    <p>
+                        Expected air-quality trend based on
+                        recent sensor readings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="prediction-content">
+
+                <div class="prediction-box">
+
+                    <span>Next Few Hours</span>
+
+                    <strong id="prediction">
+                        Increasing Risk
+                    </strong>
+
+                </div>
+
+
+                <div class="prediction-box">
+
+                    <span>AI Confidence</span>
+
+                    <strong>
+                        87%
+                    </strong>
+
+                </div>
+
+
+                <div class="prediction-box">
+
+                    <span>Recommended Action</span>
+
+                    <strong>
+                        Monitor Closely
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI RECOMMENDATION -->
+        <section class="recommendation">
+
+            <h2>🎯 AI Recommendation</h2>
+
+
+            <div class="recommendation-content">
+
+                <div class="recommendation-icon">
+                    ⚠️
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Continue Monitoring the Yellow Zone
+                    </h3>
+
+                    <p>
+                        PM2.5 and AQI levels are above the safer range.
+                        The system recommends continued monitoring and
+                        checking nearby sensor readings for further increases.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BACKEND INTEGRATION NOTE -->
+        <section class="data-note">
+
+            <h3>
+                🔗 Real-Time Data Integration
+            </h3>
+
+            <p>
+                The current interface uses sample sensor readings.
+                During final integration, these values can be replaced
+                with real-time data received from the backend and
+                environmental sensors.
+            </p>
+
+        </section>
+        <!-- =========================================
+     HOW THE SYSTEM WORKS
+     ========================================= -->
+
+<section class="info-section">
+
+    <div class="info-heading">
+        <h2>⚙️ How the Monitoring System Works</h2>
+        <p>
+            From environmental sensors to AI-powered insights, the system
+            converts pollution data into useful information for monitoring
+            mining areas.
+        </p>
+    </div>
+
+    <div class="system-flow">
+
+        <div class="flow-card">
+            <div class="flow-icon">📡</div>
+            <span class="flow-number">01</span>
+            <h3>Environmental Sensors</h3>
+            <p>
+                Sensors collect air-quality readings such as AQI, PM2.5,
+                PM10 and gas levels from monitored locations.
+            </p>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-card">
+            <div class="flow-icon">💾</div>
+            <span class="flow-number">02</span>
+            <h3>Backend Data</h3>
+            <p>
+                The collected readings are sent to the backend where the
+                latest environmental data can be stored and processed.
+            </p>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-card">
+            <div class="flow-icon">🤖</div>
+            <span class="flow-number">03</span>
+            <h3>AI Analysis</h3>
+            <p>
+                The system interprets the readings and generates an
+                understandable assessment of the pollution condition.
+            </p>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-card">
+            <div class="flow-icon">📊</div>
+            <span class="flow-number">04</span>
+            <h3>User Dashboard</h3>
+            <p>
+                The processed information is displayed through readings,
+                recommendations and pollution-zone indicators.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     UNDERSTANDING THE READINGS
+     ========================================= -->
+
+<section class="info-section">
+
+    <div class="info-heading">
+        <h2>📖 Understanding the Pollution Readings</h2>
+        <p>
+            These indicators help users understand the environmental
+            condition of a monitored mining area.
+        </p>
+    </div>
+
+    <div class="reading-cards">
+
+        <div class="reading-card">
+            <div class="reading-icon">🌫️</div>
+            <h3>Air Quality Index</h3>
+            <p>
+                AQI provides an overall indication of the air-quality
+                condition at the monitored location.
+            </p>
+            <span class="reading-note">
+                Higher AQI → Greater pollution concern
+            </span>
+        </div>
+
+        <div class="reading-card">
+            <div class="reading-icon">💨</div>
+            <h3>PM2.5 Level</h3>
+            <p>
+                PM2.5 represents fine particulate matter present in the air.
+                Monitoring it helps identify changes in particulate pollution.
+            </p>
+            <span class="reading-note">
+                Measured in μg/m³
+            </span>
+        </div>
+
+        <div class="reading-card">
+            <div class="reading-icon">🏭</div>
+            <h3>Gas Level</h3>
+            <p>
+                Gas-level readings help monitor changes in the concentration
+                of monitored gases around the mining environment.
+            </p>
+            <span class="reading-note">
+                Based on sensor readings
+            </span>
+        </div>
+
+        <div class="reading-card">
+            <div class="reading-icon">📍</div>
+            <h3>Risk Zone</h3>
+            <p>
+                The risk zone gives users a quick visual indication of the
+                pollution condition of the monitored area.
+            </p>
+            <span class="reading-note">
+                Green • Yellow • Red
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FAQ
+     ========================================= -->
+
+<section class="info-section faq-section">
+
+    <div class="info-heading">
+        <h2>❓ Frequently Asked Questions</h2>
+        <p>
+            Quick information to help users understand the monitoring
+            dashboard.
+        </p>
+    </div>
+
+    <div class="faq-list">
+
+        <details>
+            <summary>
+                What does the AQI value tell me?
+            </summary>
+
+            <p>
+                AQI gives an overall indication of the air-quality condition
+                at the monitored location. As the AQI increases, the level
+                of pollution concern also increases.
+            </p>
+        </details>
+
+
+        <details>
+            <summary>
+                Why are different areas assigned different zones?
+            </summary>
+
+            <p>
+                Pollution conditions can vary from one monitored location
+                to another. The system uses the available environmental
+                readings to help classify areas into different pollution
+                zones.
+            </p>
+        </details>
+
+
+        <details>
+            <summary>
+                What is the purpose of AI Analysis?
+            </summary>
+
+            <p>
+                AI Analysis converts numerical environmental readings into
+                understandable information. Instead of looking only at
+                numbers, users receive an interpretation of the current
+                pollution condition.
+            </p>
+        </details>
+
+
+        <details>
+            <summary>
+                Where does the monitoring data come from?
+            </summary>
+
+            <p>
+                During the prototype stage, the dashboard can use sample
+                sensor readings. During final integration, these values can
+                be replaced with real-time data received from the backend
+                and environmental sensors.
+            </p>
+        </details>
+
+
+        <details>
+            <summary>
+                What should I do when pollution levels increase?
+            </summary>
+
+            <p>
+                When pollution levels increase, the dashboard can highlight
+                the condition through AI insights, recommendations and
+                zone classification so that the monitored area can receive
+                closer observation.
+            </p>
+        </details>
+
+    </div>
+
+</section>
+<!-- FOOTER -->
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+            <h2>🌿 AQI Monitoring System</h2>
+
+            <p>
+                Real-time air quality monitoring for coal mining zones,
+                helping identify pollution levels and environmental hotspots.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+
+            <!--<a href="home.html">Home</a>-->
+            <a href="analysis.html">Analysis</a>
+            <a href="hotspot.html">Hotspots</a>
+            <a href="index.html">AI Insights</a>
+        </div>
+
+        <div class="footer-info">
+            <h3>Monitoring System</h3>
+
+            <p>🌱 Environmental Monitoring</p>
+            <p>📊 AQI & Pollutant Analysis</p>
+            <p>📍 Pollution Hotspot Detection</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © 2026 AQI Monitoring System | Smart Environmental Monitoring
+        </p>
+    </div>
+
+</footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="ai.js"></script>
+
+</body>
+</html>
