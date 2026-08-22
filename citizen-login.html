@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AirGuard | Citizen Login</title>
+
+    <style>
+
+        /* =====================================================
+           BASIC RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(235, 247, 248, 0.82),
+                    rgba(220, 241, 243, 0.82)
+                ),
+                url("images/login-bg.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            color: #073b4c;
+
+        }
+
+
+        /* =====================================================
+           LOGIN PAGE CONTAINER
+        ===================================================== */
+
+        .login-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 40px;
+
+        }
+
+
+        /* =====================================================
+           MAIN LOGIN BOX
+        ===================================================== */
+
+        .login-container {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            min-height: 540px;
+
+            display: grid;
+
+            grid-template-columns:
+                42% 58%;
+
+            background:
+                rgba(255, 255, 255, 0.78);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.8);
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 60px
+                rgba(0, 45, 55, 0.20);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+        /* =====================================================
+           LEFT INFORMATION SIDE
+        ===================================================== */
+
+        .login-info {
+
+            padding: 55px 45px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8, 58, 70, 0.94),
+                    rgba(13, 104, 112, 0.90)
+                );
+
+            color: white;
+
+        }
+
+
+        .brand {
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+
+            letter-spacing: -1px;
+
+        }
+
+
+        .brand span {
+
+            color: #16b7bd;
+
+        }
+
+
+        .brand-subtitle {
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            color: #c9e9eb;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .login-info h1 {
+
+            font-size: 38px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .login-info p {
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color: #d7edef;
+
+            max-width: 390px;
+
+        }
+
+
+        .info-line {
+
+            margin-top: 35px;
+
+            padding-left: 18px;
+
+            border-left:
+                3px solid #16b7bd;
+
+            color: #d7edef;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           RIGHT LOGIN SIDE
+        ===================================================== */
+
+        .login-box {
+
+            padding: 55px 60px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background:
+                rgba(247, 252, 252, 0.92);
+
+        }
+
+
+        .login-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e0f5f5;
+
+            font-size: 22px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .login-box h2 {
+
+            font-size: 34px;
+
+            color: #073b4c;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .login-description {
+
+            color: #607d83;
+
+            font-size: 15px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            color: #164b59;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .form-group input {
+
+            width: 100%;
+
+            height: 48px;
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid #c8dfe2;
+
+            border-radius: 8px;
+
+            background: white;
+
+            font-size: 15px;
+
+            color: #073b4c;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+
+        }
+
+
+        .form-group input:focus {
+
+            border-color: #13aeb5;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(19, 174, 181, 0.12);
+
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-submit {
+
+            width: 100%;
+
+            height: 50px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #12aeb5;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s,
+                transform 0.2s;
+
+        }
+
+
+        .login-submit:hover {
+
+            background: #07979e;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        .back-link {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #0ca5ac;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        .back-link:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =====================================================
+           LOGIN MESSAGE
+        ===================================================== */
+
+        #loginMessage {
+
+            min-height: 22px;
+
+            margin-top: 14px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            text-align: center;
+
+        }
+
+
+        /* =====================================================
+           DEMO ACCOUNT
+        ===================================================== */
+
+        .demo-account {
+
+            margin-top: 28px;
+
+            padding: 16px;
+
+            border-radius: 10px;
+
+            background: #eaf6f7;
+
+            border:
+                1px solid #cce7e9;
+
+        }
+
+
+        .demo-account h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+
+            color: #073b4c;
+
+        }
+
+
+        .demo-account p {
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            color: #49676e;
+
+        }
+
+
+        .demo-account strong {
+
+            color: #073b4c;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .login-page {
+
+                padding: 20px;
+
+            }
+
+
+            .login-container {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .login-info {
+
+                padding: 35px;
+
+            }
+
+
+            .login-info h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .brand-subtitle {
+
+                margin-bottom: 25px;
+
+            }
+
+
+            .login-box {
+
+                padding: 35px;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .login-page {
+
+                padding: 10px;
+
+            }
+
+
+            .login-info,
+            .login-box {
+
+                padding: 28px 22px;
+
+            }
+
+
+            .login-box h2 {
+
+                font-size: 28px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CITIZEN LOGIN PAGE
+    ===================================================== -->
+
+    <main class="login-page">
+
+
+        <div class="login-container">
+
+
+            <!-- =================================================
+                 LEFT SIDE
+            ================================================== -->
+
+            <section class="login-info">
+
+                <div class="brand">
+                    Air<span>Guard</span>
+                </div>
+
+                <div class="brand-subtitle">
+                    Smart Environmental Monitoring System
+                </div>
+
+
+                <h1>
+                    Citizen Environmental Portal
+                </h1>
+
+
+                <p>
+                    Report environmental issues and help authorities
+                    create cleaner and healthier communities.
+                </p>
+
+
+                <div class="info-line">
+
+                    Your reports help identify pollution problems,
+                    monitor affected areas and support timely
+                    environmental action.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RIGHT SIDE
+            ================================================== -->
+
+            <section class="login-box">
+
+
+                <div class="login-icon">
+                    👤
+                </div>
+
+
+                <h2>
+                    Citizen Login
+                </h2>
+
+
+                <p class="login-description">
+                    Login to report and track environmental complaints.
+                </p>
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================== -->
+
+                <form id="citizenLoginForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="citizenEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="citizenEmail"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="citizenPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="citizenPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="login-submit"
+                    >
+                        Login as Citizen
+                    </button>
+
+
+                    <!-- MESSAGE -->
+
+                    <p id="loginMessage"></p>
+
+
+                </form>
+
+
+                <!-- =================================================
+                     BACK TO PUBLIC PORTAL
+                ================================================== -->
+
+                <a
+                    href="index.html"
+                    class="back-link"
+                >
+                    ← Back to Public Portal
+                </a>
+
+
+                <!-- =================================================
+                     DEMO ACCOUNT
+                ================================================== -->
+
+                <div class="demo-account">
+
+                    <h3>
+                        Demo Citizen Account
+                    </h3>
+
+                    <p>
+                        Email:
+                        <strong>
+                            citizen@airguard.com
+                        </strong>
+                    </p>
+
+                    <p>
+                        Password:
+                        <strong>
+                            123456
+                        </strong>
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         LOGIN JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const loginForm =
+                    document.getElementById(
+                        "citizenLoginForm"
+                    );
+
+
+                const emailInput =
+                    document.getElementById(
+                        "citizenEmail"
+                    );
+
+
+                const passwordInput =
+                    document.getElementById(
+                        "citizenPassword"
+                    );
+
+
+                const loginMessage =
+                    document.getElementById(
+                        "loginMessage"
+                    );
+
+
+                /* =============================================
+                   LOGIN
+                ============================================= */
+
+                loginForm.addEventListener(
+                    "submit",
+                    function (event) {
+
+                        event.preventDefault();
+
+
+                        const email =
+                            emailInput.value.trim();
+
+
+                        const password =
+                            passwordInput.value.trim();
+
+
+                        /* =========================================
+                           DEMO CITIZEN ACCOUNT
+                        ========================================= */
+
+                        if (
+                            email ===
+                                "citizen@airguard.com"
+                            &&
+                            password ===
+                                "123456"
+                        ) {
+
+
+                            /*
+                             * Save citizen login
+                             */
+
+                            localStorage.setItem(
+                                "citizenLoggedIn",
+                                "true"
+                            );
+
+
+                            loginMessage.textContent =
+                                "Login successful. Opening complaint form...";
+
+                            loginMessage.style.color =
+                                "#16865c";
+
+
+                            /*
+                             * IMPORTANT:
+                             *
+                             * After successful login,
+                             * go to complaint section.
+                             */
+
+                            setTimeout(
+                                function () {
+
+                                    window.location.href =
+                                        "index.html#complaint";
+
+                                },
+                                500
+                            );
+
+
+                        }
+
+                        else {
+
+
+                            loginMessage.textContent =
+                                "Invalid email or password.";
+
+                            loginMessage.style.color =
+                                "#d9534f";
+
+
+                        }
+
+                    }
+                );
+
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
