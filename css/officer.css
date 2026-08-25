@@ -2126,3 +2126,51 @@ font-size: 13px;
 
 
 }
+/* =====================================================
+   COMPLAINT PHOTO / ENVIRONMENTAL EVIDENCE
+   ===================================================== */
+
+.complaint-photo-section {
+    margin-top: 20px;
+}
+
+.photo-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #52717a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.complaint-photo-container {
+    width: 100%;
+    min-height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f1f7f8;
+    border: 1px solid #d9e8ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.complaint-photo {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+}
+
+.no-complaint-photo {
+    padding: 40px 20px;
+    text-align: center;
+    color: #789096;
+    font-size: 14px;
+}
+
+.no-complaint-photo.hidden {
+    display: none;
+}
