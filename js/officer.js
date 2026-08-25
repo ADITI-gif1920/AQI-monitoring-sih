@@ -516,6 +516,33 @@ document.addEventListener(
                     complaint.type || "--";
             }
 
+            // Display uploaded complaint photo
+const complaintPhoto = document.getElementById("modalComplaintPhoto");
+const noComplaintPhoto = document.getElementById("noComplaintPhoto");
+
+const photo =
+    complaint.photo ||
+    complaint.image ||
+    complaint.imageUrl ||
+    complaint.photoUrl ||
+    complaint.uploadedPhoto;
+
+if (photo) {
+
+    complaintPhoto.src = photo;
+    complaintPhoto.style.display = "block";
+
+    noComplaintPhoto.style.display = "none";
+
+} else {
+
+    complaintPhoto.src = "";
+    complaintPhoto.style.display = "none";
+
+    noComplaintPhoto.style.display = "block";
+
+}
+
 
             if (modalDescription) {
 

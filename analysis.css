@@ -1,399 +1,691 @@
-/* ===== ANALYSIS DASHBOARD COLORS ===== */
+/* =========================================================
+   MINEGUARD
+   POLLUTION ANALYSIS PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT COLORS
+   ========================================================= */
 
 :root {
-    --dark-teal: #03232d;
-    --teal: #072e33;
-    --cyan: #0c7075;
-    --aqua: #0f9f9c;
-    --light-blue: #6da5c0;
-    --slate: #294d61;
+
+    --dark: #062f36;
+
+    --dark-2: #0b3b43;
+
+    --teal: #087d7e;
+
+    --cyan: #0fa9ad;
+
+    --aqua: #39c6bd;
+
+    --light: #eaf7f8;
+
+    --white: #ffffff;
+
+    --text: #163b44;
+
+    --muted: #648087;
+
 }
 
-/* KEEP MINING IMAGE VISIBLE */
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
 body {
+
     margin: 0;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
 
     background:
         linear-gradient(
-            135deg,
-            rgba(3, 35, 45, 0.55),
-            rgba(7, 46, 51, 0.45)
+            rgba(232, 247, 248, 0.94),
+            rgba(242, 250, 250, 0.97)
         ),
         url("mining-bg.avif");
 
     background-size: cover;
+
     background-position: center;
+
     background-attachment: fixed;
+
     background-repeat: no-repeat;
 
-    color: var(--dark-teal);
 }
 
-/* Main dashboard */
-.analysis-section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 25px 60px;
-}
 
-/* ===== HERO ===== */
-
-.hero-header {
-    background: linear-gradient(
-        135deg,
-        rgba(3, 35, 45, 0.92),
-        rgba(15, 159, 156, 0.82)
-    );
-
-    color: white;
-
-    border-radius: 22px;
-    padding: 28px 32px;
-    margin-bottom: 30px;
-
-    border: 1px solid rgba(255,255,255,0.25);
-    box-shadow: 0 10px 30px rgba(3,35,45,0.35);
-}
-
-.hero-text h1 {
-    color: white;
-
-    background: none;
-    -webkit-text-fill-color: white;
-
-    font-size: 42px;
-    font-weight: 800;
-}
-
-.hero-text .subtitle {
-    color: #d8f5f3;
-}
-
-/* AQI badge */
-.aqi-badge {
-    background: #39c6bd;
-    color: #03232d;
-
-    border-radius: 16px;
-    padding: 16px 20px;
-}
-
-/* ===== CHART CARDS ===== */
-
-.chart-card {
-    position: relative;
-    overflow: hidden;
-
-    /* Gradient belongs to CARD, NOT CANVAS */
-    background: #ffffff;
-
-    border-radius: 20px;
-    padding: 26px;
-    margin: 22px 0;
-
-    border: 1px solid #39c6bd73;
-
-    box-shadow:
-        0 10px 30px rgba(3,35,45,0.35);
-
-    color:#03232d;
-}
-
-/* Headings */
-.chart-card h2 {
-    color: #39c6bd;
-    font-size: 22px;
-    margin-bottom: 8px;
-}
-
-/* Description */
-.chart-card p {
-    color: #d8f5f3;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-/* IMPORTANT:
-   Don't apply background/color to canvas */
-.chart-card canvas {
-    display: block;
-
-    width: 100% !important;
-    max-height: 360px;
-
-    background: transparent !important;
-}
-
-/* PM2.5 + PM10 */
-.pollutant-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-/* Historical */
-.historical-card {
-    border-left: 6px solid #39c6bd;
-}
-
-/* Gas */
-.gas-card {
-    border-left: 6px solid #6da5c0;
-}
-
-/* Hover */
-.chart-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 15px 35px rgba(3,35,45,0.45);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-    .analysis-section {
-        padding: 25px 15px 40px;
-    }
-
-    .hero-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .hero-text h1 {
-        font-size: 30px;
-    }
-
-    .pollutant-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .chart-card {
-        padding: 18px;
-    }
-
-    .aqi-badge {
-        width: 100%;
-    }
-}
-/* =========================================
+/* =========================================================
    HEADER
-   ========================================= */
+   ========================================================= */
 
-.site-header {
+.analysis-header {
+
     width: 100%;
-    padding: 18px 5%;
+
+    min-height: 72px;
+
+    padding: 12px 6%;
 
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
 
-    background: rgba(255, 255, 255, 0.96);
+    justify-content: space-between;
 
-    border-bottom: 2px solid #6DA5C0;
+    gap: 25px;
 
-    box-shadow: 0 5px 18px rgba(5, 22, 26, 0.15);
+    background: #062f36;
 
-    position: relative;
-    z-index: 1000;
+    border-bottom: 3px solid var(--aqua);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.18);
+
 }
+
 
 /* Logo */
 
-.header-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.analysis-logo {
 
-    font-size: 21px;
+    color: white;
+
+    font-size: 22px;
+
     font-weight: 800;
 
-    color: #03232d;
+    line-height: 1;
+
 }
 
-.header-logo:first-letter {
-    color: #0C7075;
+
+.analysis-logo span {
+
+    color: var(--aqua);
+
 }
+
+
+.analysis-logo small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #a9d4d7;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+}
+
 
 /* Navigation */
 
-.header-nav {
+.analysis-nav {
+
     display: flex;
+
     align-items: center;
-    gap: 10px;
+
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
 }
 
-.header-nav a {
+
+.analysis-nav a {
+
+    color: #d8eeee;
+
     text-decoration: none;
 
-    color: #294D61;
+    font-size: 12px;
 
-    font-size: 14px;
     font-weight: 700;
 
-    padding: 9px 15px;
+    padding: 9px 12px;
 
-    border-radius: 10px;
+    border-radius: 8px;
 
     transition: 0.25s ease;
-}
 
-.header-nav a:hover {
-    background: #E8F4F6;
-    color: #0C7075;
-}
-
-/* Active page */
-
-.header-nav a.active {
-    background: #03232d;
-    color: white;
 }
 
 
-/* =========================================
-   FOOTER
-   ========================================= */
+.analysis-nav a:hover {
 
-.site-footer {
-    margin-top: 50px;
-
-    background: #03232d;
+    background: rgba(57, 198, 189, 0.18);
 
     color: white;
 
-    border-top: 5px solid #0C7075;
 }
 
-/* Footer main area */
 
-.footer-content {
-    max-width: 1200px;
+.analysis-nav a.active {
+
+    background: var(--aqua);
+
+    color: var(--dark);
+
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.analysis-page {
+
+    width: 100%;
+
+    padding: 60px 20px 80px;
+
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+.analysis-title {
+
+    width: min(1100px, 100%);
+
+    margin: 0 auto 35px;
+
+}
+
+
+.analysis-title span {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--teal);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.analysis-title h1 {
+
+    margin: 0;
+
+    color: var(--dark);
+
+    font-size: 38px;
+
+    font-weight: 800;
+
+}
+
+
+.analysis-title p {
+
+    margin: 8px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.analysis-dashboard {
+
+    width: min(1100px, 100%);
 
     margin: auto;
 
-    padding: 45px 30px;
-
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1.5fr;
-
-    gap: 50px;
 }
 
-/* Footer headings */
 
-.footer-about h2,
-.footer-links h3,
-.footer-info h3 {
-    margin-top: 0;
+/* =========================================================
+   DASHBOARD TOP
+   ========================================================= */
 
-    color: #39c6bd;
-}
+.dashboard-top {
 
-.footer-about h2 {
-    font-size: 22px;
-    margin-bottom: 12px;
-}
-
-.footer-links h3,
-.footer-info h3 {
-    font-size: 17px;
-    margin-bottom: 15px;
-}
-
-/* Footer text */
-
-.footer-about p,
-.footer-info p {
-    color: #c7dfe3;
-
-    line-height: 1.6;
-
-    font-size: 14px;
-}
-
-/* Footer links */
-
-.footer-links {
     display: flex;
-    flex-direction: column;
-    gap: 9px;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 28px 32px;
+
+    margin-bottom: 22px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #062f36,
+            #087d7e
+        );
+
+    box-shadow:
+        0 12px 30px rgba(3, 35, 45, 0.25);
+
 }
 
-.footer-links a {
-    text-decoration: none;
 
-    color: #c7dfe3;
+.dashboard-top h2 {
+
+    margin: 0 0 7px;
+
+    color: white;
+
+    font-size: 27px;
+
+}
+
+
+.dashboard-top p {
+
+    margin: 0;
+
+    color: #ccebed;
 
     font-size: 14px;
 
-    transition: 0.2s ease;
 }
 
-.footer-links a:hover {
-    color: #39c6bd;
 
-    transform: translateX(4px);
-}
+/* =========================================================
+   AQI STATUS
+   ========================================================= */
 
-/* Bottom footer */
+.aqi-status {
 
-.footer-bottom {
-    border-top: 1px solid rgba(109, 165, 192, 0.35);
+    min-width: 135px;
+
+    padding: 15px 22px;
 
     text-align: center;
 
-    padding: 18px 20px;
+    background: white;
 
-    background: #05161A;
+    border-radius: 14px;
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.18);
+
 }
 
-.footer-bottom p {
-    margin: 0;
 
-    color: #9dbdc4;
+.aqi-status span {
+
+    display: block;
+
+    color: var(--teal);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.aqi-status strong {
+
+    display: block;
+
+    margin: 3px 0;
+
+    color: var(--dark);
+
+    font-size: 25px;
+
+}
+
+
+.aqi-status small {
+
+    color: #d58a00;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.analysis-card {
+
+    width: 100%;
+
+    margin-bottom: 22px;
+
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border: 1px solid rgba(15, 159, 156, 0.25);
+
+    border-top: 4px solid var(--aqua);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(3, 35, 45, 0.13);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.analysis-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 32px rgba(3, 35, 45, 0.18);
+
+}
+
+
+/* =========================================================
+   CARD HEADING
+   ========================================================= */
+
+.card-heading {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.card-heading h3 {
+
+    margin: 0 0 6px;
+
+    color: var(--dark);
+
+    font-size: 20px;
+
+}
+
+
+.card-heading p {
+
+    margin: 0 0 18px;
+
+    color: var(--muted);
 
     font-size: 13px;
+
 }
 
 
-/* =========================================
+.card-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #e6f7f6;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================================
+   CHART CONTAINER
+   ========================================================= */
+
+.chart-container {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 320px;
+
+}
+
+
+.chart-container canvas {
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+}
+
+
+/* Larger AQI chart */
+
+.large-card .chart-container {
+
+    height: 350px;
+
+}
+
+
+/* =========================================================
+   TWO COLUMN GRID
+   ========================================================= */
+
+.analysis-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.analysis-footer {
+
+    padding: 22px;
+
+    text-align: center;
+
+    background: var(--dark);
+
+    border-top: 4px solid var(--aqua);
+
+}
+
+
+.analysis-footer p {
+
+    margin: 0;
+
+    color: #b9d9dc;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
    MOBILE
-   ========================================= */
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-    .site-header {
+    .analysis-header {
+
         flex-direction: column;
 
-        gap: 15px;
+        align-items: flex-start;
 
-        padding: 18px 20px;
+        padding: 15px 20px;
+
     }
 
-    .header-nav {
-        width: 100%;
 
-        justify-content: center;
+    .analysis-nav {
 
-        flex-wrap: wrap;
+        justify-content: flex-start;
+
     }
 
-    .header-nav a {
-        font-size: 13px;
 
-        padding: 8px 11px;
-    }
+    .analysis-grid {
 
-    .footer-content {
         grid-template-columns: 1fr;
 
-        gap: 25px;
-
-        padding: 35px 25px;
     }
 
+}
+
+
+@media (max-width: 600px) {
+
+    .analysis-page {
+
+        padding: 40px 15px 60px;
+
+    }
+
+
+    .analysis-title h1 {
+
+        font-size: 29px;
+
+    }
+
+
+    .dashboard-top {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 22px;
+
+    }
+
+
+    .aqi-status {
+
+        width: 100%;
+
+    }
+
+
+    .analysis-card {
+
+        padding: 18px;
+
+    }
+
+
+    .chart-container {
+
+        height: 260px;
+
+    }
+
+
+    .large-card .chart-container {
+
+        height: 280px;
+
+    }
+
+}
+/* =========================================================
+   MINEGUARD ANALYSIS PAGE
+   SAME MINING BACKGROUND AS MAIN WEBSITE
+   ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-image:
+        linear-gradient(
+            rgba(5, 35, 42, 0.30),
+            rgba(5, 35, 42, 0.30)
+        ),
+        url("assets/images/coal mining background.png") !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+
+    min-height: 100vh;
+}
+/* Let the mining background remain visible */
+.analysis-section {
+    background: transparent !important;
 }

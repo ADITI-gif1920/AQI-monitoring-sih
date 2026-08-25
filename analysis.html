@@ -1,120 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQI Analysis</title>
+
+    <title>Pollution Analysis | MineGuard</title>
+
     <link rel="stylesheet" href="analysis.css">
 </head>
 
 <body>
-    <!-- HEADER -->
-<header class="site-header">
-    <div class="header-logo">
-        🌿 <span>AQI Monitoring System</span>
-    </div>
 
-    <nav class="header-nav">
-        <!--<a href="home.html">Home</a>-->
-        <a href="analysis.html" class="active">Analysis</a>
-        <a href="hotspot.html">Hotspots</a>
-        <a href="index.html">AI Insights</a>
-    </nav>
-</header>
-a
-    <section class="analysis-section">
-        
-<div class="hero-header">
-    <div class="hero-text">
-        <h1>🌿 Pollution Analysis Dashboard</h1>
-        <p class="subtitle">
-            Real-time environmental monitoring for coal mining zones
-        </p>
-    </div>
+    <!-- ================================
+         MINEGUARD HEADER
+    ================================= -->
 
-    <div class="aqi-badge">
-        <span>AQI STATUS</span>
-        <strong>Moderate</strong>
-    </div>
-</div>
+    <header class="analysis-header">
 
-        <div class="chart-card">
-            <h2>AQI Trend</h2>
-            <p>Air Quality Index over the last few hours</p>
+        <div class="analysis-logo">
+            Mine<span>Guard</span>
 
-            <canvas id="aqiChart"></canvas>
+            <small>
+                Smart Environmental Monitoring System
+            </small>
         </div>
-        <div class="pollutant-grid">
 
-    <div class="chart-card">
-        <h2>PM2.5 Levels</h2>
-        <p>Fine particulate matter concentration</p>
-        <canvas id="pm25Chart"></canvas>
-    </div>
+        <nav class="analysis-nav">
 
-    <div class="chart-card">
-        <h2>PM10 Levels</h2>
-        <p>Coarse particulate matter concentration</p>
-        <canvas id="pm10Chart"></canvas>
-    </div>
+            <a href="index.html">Home</a>
 
-</div>
-<div class="chart-card gas-card">
-    <h2>Gas Levels</h2>
-    <p>Monitoring of harmful gases detected by the sensors</p>
+            <a href="index.html#monitoring">
+                Monitoring
+            </a>
 
-    <canvas id="gasChart"></canvas>
-</div>
-<div class="chart-card historical-card">
-    <h2>Historical Air Quality</h2>
-    <p>Compare air quality readings over previous days</p>
+            <a href="index.html#pollution-map">
+                Pollution Map
+            </a>
 
-    <canvas id="historicalChart"></canvas>
-</div>
+            <a href="hotspot.html">
+                Hotspots
+            </a>
+
+            <a href="analysis.html" class="active">
+                Pollution Analysis
+            </a>
+
+            <a href="index.html#ai-insights">
+                AI Insights
+            </a>
+
+            <a href="index.html#recommendations">
+                Recommendations
+            </a>
+
+        </nav>
+
+    </header>
 
 
-    </section>
-    <!-- FOOTER -->
-<footer class="site-footer">
+    <!-- ================================
+         POLLUTION ANALYSIS ONLY
+    ================================= -->
 
-    <div class="footer-content">
+    <main class="analysis-page">
 
-        <div class="footer-about">
-            <h2>🌿 AQI Monitoring System</h2>
+        <!-- Page heading -->
+
+        <section class="analysis-title">
+
+            <span>DATA ANALYSIS</span>
+
+            <h1>
+                Pollution Analysis Dashboard
+            </h1>
+
             <p>
-                Real-time air quality monitoring for coal mining zones,
-                helping identify pollution levels and environmental hotspots.
+                Detailed analysis of air quality, pollutant levels
+                and historical trends.
             </p>
-        </div>
 
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <!--<a href="home.html">Home</a>-->
-            <a href="analysis.html">Analysis</a>
-            <a href="hotspot.html">Hotspots</a>
-            <a href="index.html">AI Insights</a>
-        </div>
+        </section>
 
-        <div class="footer-info">
-            <h3>Monitoring System</h3>
-            <p>🌱 Environmental Monitoring</p>
-            <p>📊 AQI & Pollutant Analysis</p>
-            <p>📍 Pollution Hotspot Detection</p>
-        </div>
 
-    </div>
+        <!-- ================================
+             DASHBOARD
+        ================================= -->
 
-    <div class="footer-bottom">
-        <p>© 2026 AQI Monitoring System | Smart Environmental Monitoring</p>
-    </div>
+        <section class="analysis-dashboard">
 
-</footer>
-    
 
-    <!-- Chart.js library -->
+            <!-- Dashboard top -->
+
+            <div class="dashboard-top">
+
+                <div>
+
+                    <h2>
+                        🌿 Pollution Analysis
+                    </h2>
+
+                    <p>
+                        Real-time environmental monitoring
+                        for coal mining zones
+                    </p>
+
+                </div>
+
+
+                <div class="aqi-status">
+
+                    <span>
+                        CURRENT AQI
+                    </span>
+
+                    <strong>
+                        112
+                    </strong>
+
+                    <small>
+                        Moderate
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 AQI TREND
+            ================================= -->
+
+            <div class="analysis-card large-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h3>
+                            AQI Trend
+                        </h3>
+
+                        <p>
+                            Air Quality Index over the last few hours
+                        </p>
+
+                    </div>
+
+                    <span class="card-icon">
+                        📈
+                    </span>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="aqiChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 PM2.5 + PM10
+            ================================= -->
+
+            <div class="analysis-grid">
+
+
+                <div class="analysis-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <h3>
+                                PM2.5 Levels
+                            </h3>
+
+                            <p>
+                                Fine particulate matter concentration
+                            </p>
+
+                        </div>
+
+                        <span class="card-icon">
+                            🌫️
+                        </span>
+
+                    </div>
+
+                    <div class="chart-container">
+
+                        <canvas id="pm25Chart"></canvas>
+
+                    </div>
+
+                </div>
+
+
+                <div class="analysis-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <h3>
+                                PM10 Levels
+                            </h3>
+
+                            <p>
+                                Coarse particulate matter concentration
+                            </p>
+
+                        </div>
+
+                        <span class="card-icon">
+                            🏭
+                        </span>
+
+                    </div>
+
+                    <div class="chart-container">
+
+                        <canvas id="pm10Chart"></canvas>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 GAS LEVELS
+            ================================= -->
+
+            <div class="analysis-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h3>
+                            Gas Levels
+                        </h3>
+
+                        <p>
+                            Harmful gases detected by environmental sensors
+                        </p>
+
+                    </div>
+
+                    <span class="card-icon">
+                        🧪
+                    </span>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="gasChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 HISTORICAL AIR QUALITY
+            ================================= -->
+
+            <div class="analysis-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h3>
+                            Historical Air Quality
+                        </h3>
+
+                        <p>
+                            Compare air quality readings over previous days
+                        </p>
+
+                    </div>
+
+                    <span class="card-icon">
+                        📊
+                    </span>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="historicalChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="analysis-footer">
+
+        <p>
+            © 2026 MineGuard | Smart Environmental Monitoring System
+        </p>
+
+    </footer>
+
+
+    <!-- Chart.js -->
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Analysis JavaScript -->
 
     <script src="analysis.js"></script>
 
 </body>
+
 </html>
