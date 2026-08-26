@@ -1,0 +1,756 @@
+/* =========================================
+   AIRGUARD LOGIN BACKGROUND
+========================================= */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+background-image:
+    linear-gradient(
+        rgba(2, 24, 28, 0.93),
+        rgba(2, 24, 28, 0.93)
+    ),
+    url("../assets/images/coal mining background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+}
+/* =========================================================
+   AIRGUARD LOGIN PAGE
+   ========================================================= */
+
+/* ==============================
+   RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: #12343b;
+
+}
+
+
+/* ==============================
+   LOGIN PAGE
+============================== */
+
+.login-page {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 20px;
+
+    background-image:
+        url("../assets/images/coal mining background.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+/* ==============================
+   BACKGROUND OVERLAY
+============================== */
+
+.login-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(224, 245, 244, 0.92),
+            rgba(220, 240, 242, 0.80)
+        );
+
+    backdrop-filter: blur(2px);
+
+}
+
+
+/* ==============================
+   MAIN CONTAINER
+============================== */
+
+.login-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+/* ==============================
+   AIRGUARD BRAND
+============================== */
+
+.brand {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+
+}
+
+
+.brand-name {
+
+    font-size: 44px;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    color: #123b43;
+
+}
+
+
+.brand-name span {
+
+    color: #20aaa5;
+
+}
+
+
+.brand p {
+
+    margin-top: 5px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    color: #355961;
+
+}
+
+
+/* ==============================
+   LOGIN CARD
+============================== */
+
+.login-card {
+
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 22px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 20px 55px rgba(0, 45, 55, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+}
+
+
+/* ==============================
+   CARD HEADING
+============================== */
+
+.card-heading {
+
+    text-align: center;
+
+    margin-bottom: 32px;
+
+}
+
+
+.card-heading h1 {
+
+    font-size: 32px;
+
+    color: #123b43;
+
+    font-weight: 750;
+
+}
+
+
+.heading-line {
+
+    width: 42px;
+
+    height: 3px;
+
+    background: #18aaa4;
+
+    border-radius: 20px;
+
+    margin: 12px auto;
+
+}
+
+
+.card-heading p {
+
+    color: #60777c;
+
+    font-size: 15px;
+
+}
+
+
+/* ==============================
+   LOGIN OPTIONS
+============================== */
+
+.login-options {
+
+    display: grid;
+
+    grid-template-columns: 1fr 45px 1fr;
+
+    align-items: stretch;
+
+    gap: 20px;
+
+}
+
+
+/* ==============================
+   OPTION CARD
+============================== */
+
+.login-option {
+
+    min-height: 310px;
+
+    padding: 30px 28px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.login-option:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 50, 60, 0.12);
+
+}
+
+
+/* ==============================
+   CITIZEN CARD
+============================== */
+
+.citizen-option {
+
+    background:
+        linear-gradient(
+            145deg,
+            #effaf7,
+            #e7f5f1
+        );
+
+    border: 1px solid #d2ebe5;
+
+}
+
+
+/* ==============================
+   OFFICER CARD
+============================== */
+
+.officer-option {
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0f5ff,
+            #eaf1fc
+        );
+
+    border: 1px solid #d8e3f4;
+
+}
+
+
+/* ==============================
+   ICON
+============================== */
+
+.option-icon {
+
+    width: 72px;
+
+    height: 72px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 30px;
+
+    margin-bottom: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 18px rgba(0, 50, 60, 0.08);
+
+}
+
+
+.citizen-icon {
+
+    border: 2px solid #bde4db;
+
+}
+
+
+.officer-icon {
+
+    border: 2px solid #c8d8f1;
+
+}
+
+
+/* ==============================
+   OPTION TITLE
+============================== */
+
+.login-option h2 {
+
+    font-size: 23px;
+
+    color: #123b43;
+
+    margin-bottom: 12px;
+
+}
+
+
+.login-option p {
+
+    max-width: 300px;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    color: #61767b;
+
+    margin-bottom: 24px;
+
+}
+
+
+/* ==============================
+   LOGIN BUTTON
+============================== */
+
+.login-option-btn {
+
+    width: 220px;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 9px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.login-option-btn:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ==============================
+   CITIZEN BUTTON
+============================== */
+
+.citizen-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a999,
+            #24b7a7
+        );
+
+    box-shadow:
+        0 6px 18px rgba(22, 169, 153, 0.25);
+
+}
+
+
+.citizen-btn:hover {
+
+    box-shadow:
+        0 9px 22px rgba(22, 169, 153, 0.35);
+
+}
+
+
+/* ==============================
+   OFFICER BUTTON
+============================== */
+
+.officer-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #315fae,
+            #426fc2
+        );
+
+    box-shadow:
+        0 6px 18px rgba(49, 95, 174, 0.25);
+
+}
+
+
+.officer-btn:hover {
+
+    box-shadow:
+        0 9px 22px rgba(49, 95, 174, 0.35);
+
+}
+
+
+/* ==============================
+   DIVIDER
+============================== */
+
+.login-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+}
+
+
+.login-divider::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 75%;
+
+    background: #d8e2e4;
+
+}
+
+
+.login-divider span {
+
+    position: relative;
+
+    z-index: 2;
+
+    background: white;
+
+    border: 1px solid #d7e1e3;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #50696e;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==============================
+   BACK TO PORTAL
+============================== */
+
+.back-section {
+
+    border-top: 1px solid #e2e8e9;
+
+    margin-top: 32px;
+
+    padding-top: 22px;
+
+    text-align: center;
+
+}
+
+
+.back-link {
+
+    color: #159b96;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+.back-link:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.login-footer {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #45646a;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+.login-footer p:first-child {
+
+    font-weight: 600;
+
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 800px) {
+
+    .login-card {
+
+        padding: 25px;
+
+    }
+
+
+    .login-options {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .login-divider {
+
+        height: 40px;
+
+    }
+
+
+    .login-divider::before {
+
+        width: 70%;
+
+        height: 1px;
+
+    }
+
+
+    .login-divider span {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+
+    .brand-name {
+
+        font-size: 36px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .login-page {
+
+        padding: 30px 12px;
+
+    }
+
+
+    .login-card {
+
+        padding: 20px 15px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .card-heading h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    .login-option {
+
+        padding: 25px 18px;
+
+    }
+
+
+    .login-option-btn {
+
+        width: 100%;
+
+    }
+
+}
+/* =====================================================
+   DARK AIRGUARD LOGIN BACKGROUND
+   ===================================================== */
+
+body {
+    background:
+        linear-gradient(
+            rgba(3, 30, 35, 0.78),
+            rgba(5, 43, 48, 0.82)
+        ),
+        url("../assets/images/coal mining background.png")
+        center center / cover fixed no-repeat !important;
+}
+
+/* Dark glass effect for the main login card */
+.login-card {
+    background: rgba(235, 246, 246, 0.96) !important;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Keep AirGuard branding clearly visible */
+.login-page,
+.login-container {
+    position: relative;
+    z-index: 1;
+}

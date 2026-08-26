@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AirGuard | Government Dashboard</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="admin-header">
+
+        <div class="admin-brand">
+            <div class="admin-logo">
+                Mine<span>Guard</span>
+            </div>
+
+            <div class="admin-subtitle">
+                Government Environmental Monitoring Portal
+            </div>
+        </div>
+
+        <div class="admin-user">
+
+            <span>Government Officer</span>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- GOVERNMENT BAR -->
+
+    <div class="government-bar">
+
+        <span>
+            🏛️ Environmental Monitoring & Complaint Management
+        </span>
+
+        <span>
+            Government Portal
+        </span>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="admin-container">
+
+        <!-- PAGE TITLE -->
+
+        <section class="admin-heading">
+
+            <p>
+                ADMINISTRATION PANEL
+            </p>
+
+            <h1>
+                Complaint Management Dashboard
+            </h1>
+
+            <span>
+                Monitor, review and manage environmental complaints
+                submitted by citizens.
+            </span>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+
+        <section class="admin-statistics">
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div>
+                    <span>
+                        TOTAL COMPLAINTS
+                    </span>
+
+                    <strong id="adminTotalComplaints">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+                    <span>
+                        PENDING
+                    </span>
+
+                    <strong id="adminPendingComplaints">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon">
+                    🔄
+                </div>
+
+                <div>
+                    <span>
+                        IN PROGRESS
+                    </span>
+
+                    <strong id="adminProgressComplaints">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div>
+                    <span>
+                        RESOLVED
+                    </span>
+
+                    <strong id="adminResolvedComplaints">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPLAINT MANAGEMENT -->
+
+        <section class="complaint-management">
+
+            <div class="management-header">
+
+                <div>
+
+                    <p>
+                        CITIZEN COMPLAINTS
+                    </p>
+
+                    <h2>
+                        Complaint Records
+                    </h2>
+
+                </div>
+
+                <button
+                    id="refreshComplaintsBtn"
+                    class="refresh-btn"
+                >
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH AND FILTER -->
+
+            <div class="complaint-controls">
+
+                <input
+                    type="text"
+                    id="adminSearch"
+                    placeholder="Search by Complaint ID, location or citizen name..."
+                >
+
+                <select id="adminStatusFilter">
+
+                    <option value="all">
+                        All Complaints
+                    </option>
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Resolved">
+                        Resolved
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- COMPLAINT TABLE -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Complaint ID
+                            </th>
+
+                            <th>
+                                Citizen
+                            </th>
+
+                            <th>
+                                Location
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="complaintsTableBody">
+
+                        <!-- JavaScript will insert complaints here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- NO COMPLAINTS -->
+
+            <div
+                id="noComplaints"
+                class="no-complaints"
+            >
+
+                No complaints found.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- COMPLAINT DETAILS MODAL -->
+
+    <div
+        id="complaintModal"
+        class="admin-modal"
+    >
+
+        <div class="admin-modal-content">
+
+            <button
+                id="closeComplaintModal"
+                class="close-modal"
+            >
+                ×
+            </button>
+
+            <p class="modal-label">
+                COMPLAINT DETAILS
+            </p>
+
+            <h2 id="modalComplaintId">
+                AG-000000
+            </h2>
+
+
+            <div class="modal-details">
+
+                <div>
+                    <span>Citizen Name</span>
+                    <strong id="modalCitizenName">
+                        --
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Email</span>
+                    <strong id="modalCitizenEmail">
+                        --
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Location</span>
+                    <strong id="modalLocation">
+                        --
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Complaint Type</span>
+                    <strong id="modalComplaintType">
+                        --
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Date Submitted</span>
+                    <strong id="modalComplaintDate">
+                        --
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="description-box">
+
+                <span>
+                    Description
+                </span>
+
+                <p id="modalDescription">
+                    --
+                </p>
+
+            </div>
+
+
+            <!-- STATUS MANAGEMENT -->
+
+            <div class="status-management">
+
+                <label for="modalStatus">
+                    Update Complaint Status
+                </label>
+
+                <select id="modalStatus">
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Resolved">
+                        Resolved
+                    </option>
+
+                </select>
+
+                <button
+                    id="updateStatusBtn"
+                >
+                    Update Status
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <footer class="admin-footer">
+
+        <strong>
+            MineGuard
+        </strong>
+
+        <span>
+            Smart Environmental Monitoring System
+        </span>
+
+        <span>
+            © 2026 Hackathon Project
+        </span>
+
+    </footer>
+
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

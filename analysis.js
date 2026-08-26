@@ -1,518 +1,330 @@
-const ctx = document.getElementById("aqiChart");
+/* =========================================================
+   MINEGUARD
+   POLLUTION ANALYSIS
+   ========================================================= */
 
-new Chart(ctx, {
-    type: "line",
 
-    data: {
-        labels: [
-            "8 AM",
-            "9 AM",
-            "10 AM",
-            "11 AM",
-            "12 PM",
-            "1 PM"
-        ],
+/* =========================================================
+   COMMON CHART OPTIONS
+   ========================================================= */
 
-        datasets: [
-            {
-                label: "AQI",
-                data: [72, 85, 96, 110, 125, 118],
+const commonOptions = {
 
-                borderWidth: 3,
-                tension: 0.4,
+    responsive: true,
 
-                fill: true,
+    maintainAspectRatio: false,
 
-                backgroundColor: "rgba(57,198,189,0.25)",
-                borderColor: "#03232d",
+    plugins: {
 
-                pointRadius: 5,
-                pointHoverRadius: 8,
+        legend: {
+            display: true
+        }
 
-                pointBackgroundColor: "#39c6bd",
-                pointBorderColor: "#03232d",
-                pointRadius:5,
-                pointHoverRadius:7
-            }
-        ]
     },
 
-    options: {
-        responsive: true,
+    scales: {
 
-        plugins: {
-            legend: {
-                labels: {
-                    color: "#0f172a",
-                    font: {
-                        size: 14,
-                        weight: "bold"
-                    }
-                }
-            },
+        y: {
 
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return " AQI: " + context.parsed.y;
-                    }
+            beginAtZero: true
+
+        }
+
+    }
+
+};
+
+
+/* =========================================================
+   AQI TREND
+   ========================================================= */
+
+new Chart(
+    document.getElementById("aqiChart"),
+    {
+
+        type: "line",
+
+        data: {
+
+            labels: [
+                "8 AM",
+                "9 AM",
+                "10 AM",
+                "11 AM",
+                "12 PM",
+                "1 PM"
+            ],
+
+            datasets: [
+
+                {
+
+                    label: "AQI",
+
+                    data: [
+                        72,
+                        84,
+                        95,
+                        110,
+                        125,
+                        118
+                    ],
+
+                    borderColor: "#087d7e",
+
+                    backgroundColor: "rgba(57,198,189,0.25)",
+
+                    borderWidth: 3,
+
+                    fill: true,
+
+                    tension: 0.35,
+
+                    pointRadius: 5
+
                 }
-            }
+
+            ]
+
         },
 
-        scales: {
-            y: {
-                beginAtZero: true,
-                suggestedMax: 200,
+        options: commonOptions
 
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "AQI Level",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            },
-
-            x: {
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "Time",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            }
-        }
     }
-});
-const pm25Ctx = document.getElementById("pm25Chart");
+);
 
-new Chart(pm25Ctx, {
-    type: "bar",
 
-    data: {
-        labels: [
-            "8 AM",
-            "9 AM",
-            "10 AM",
-            "11 AM",
-            "12 PM",
-            "1 PM"
-        ],
+/* =========================================================
+   PM2.5
+   ========================================================= */
 
-        datasets: [
-           {
-    label: "PM2.5 (µg/m³)",
-    data: [32, 38, 45, 52, 61, 55],
+new Chart(
+    document.getElementById("pm25Chart"),
+    {
 
-    backgroundColor: "rgba(57, 198, 189, 0.70)",
-    borderColor: "#03232d",
-    borderWidth: 2,
-    borderRadius: 8
-}
-        ]
-    },
+        type: "bar",
 
-    options: {
-        responsive: true,
+        data: {
 
-        plugins: {
-            legend: {
-                labels: {
-                    color: "#0f172a",
-                    font: {
-                        size: 14,
-                        weight: "bold"
-                    }
+            labels: [
+                "8 AM",
+                "10 AM",
+                "12 PM",
+                "2 PM",
+                "4 PM"
+            ],
+
+            datasets: [
+
+                {
+
+                    label: "PM2.5",
+
+                    data: [
+                        42,
+                        50,
+                        68,
+                        61,
+                        55
+                    ],
+
+                    backgroundColor: "#0fa9ad",
+
+                    borderRadius: 6
+
                 }
-            },
 
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return " PM2.5: " + context.parsed.y + " µg/m³";
-                    }
-                }
-            }
+            ]
+
         },
 
-        scales: {
-            y: {
-                beginAtZero: true,
-                suggestedMax: 80,
+        options: commonOptions
 
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "PM2.5 (µg/m³)",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            },
-
-            x: {
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "Time",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            }
-        }
     }
-});
-const pm10Ctx = document.getElementById("pm10Chart");
+);
 
-new Chart(pm10Ctx, {
-    type: "bar",
 
-    data: {
-        labels: [
-            "8 AM",
-            "9 AM",
-            "10 AM",
-            "11 AM",
-            "12 PM",
-            "1 PM"
-        ],
+/* =========================================================
+   PM10
+   ========================================================= */
 
-        datasets: [
-           {
-    label: "PM10 (µg/m³)",
-    data: [55, 62, 70, 82, 91, 86],
+new Chart(
+    document.getElementById("pm10Chart"),
+    {
 
-    backgroundColor: "rgba(57, 198, 189, 0.70)",
-    borderColor: "#03232d",
-    borderWidth: 2,
-    borderRadius: 8
-}
-        ]
-    },
+        type: "bar",
 
-    options: {
-        responsive: true,
+        data: {
 
-        plugins: {
-            legend: {
-                labels: {
-                    color: "#0f172a",
-                    font: {
-                        size: 14,
-                        weight: "bold"
-                    }
+            labels: [
+                "8 AM",
+                "10 AM",
+                "12 PM",
+                "2 PM",
+                "4 PM"
+            ],
+
+            datasets: [
+
+                {
+
+                    label: "PM10",
+
+                    data: [
+                        110,
+                        135,
+                        180,
+                        165,
+                        150
+                    ],
+
+                    backgroundColor: "#39c6bd",
+
+                    borderRadius: 6
+
                 }
-            },
 
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return " PM10: " + context.parsed.y + " µg/m³";
-                    }
-                }
-            }
+            ]
+
         },
 
-        scales: {
-            y: {
-                beginAtZero: true,
-                suggestedMax: 110,
+        options: commonOptions
 
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "PM10 (µg/m³)",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            },
-
-            x: {
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "Time",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            }
-        }
     }
-});
+);
 
 
-const gasCtx = document.getElementById("gasChart");
+/* =========================================================
+   GAS LEVELS
+   ========================================================= */
 
-new Chart(gasCtx, {
-    type: "line",
+new Chart(
+    document.getElementById("gasChart"),
+    {
 
-    data: {
-        labels: [
-            "8 AM",
-            "9 AM",
-            "10 AM",
-            "11 AM",
-            "12 PM",
-            "1 PM"
-        ],
+        type: "line",
 
-        datasets: [
-            {
-                label: "Gas Level",
+        data: {
 
-                data: [18, 22, 27, 35, 42, 38],
+            labels: [
+                "8 AM",
+                "10 AM",
+                "12 PM",
+                "2 PM",
+                "4 PM"
+            ],
 
-                borderWidth: 3,
-                tension: 0.4,
+            datasets: [
 
-                fill: true,
+                {
 
-                backgroundColor: "rgba(57,198,189,0.25)",
-                borderColor: "#03232d",
+                    label: "CO",
 
-                pointBackgroundColor: "#39c6bd",
-                pointBorderColor: "#03232d",
-                pointBorderWidth: 2,
+                    data: [
+                        35,
+                        42,
+                        54,
+                        49,
+                        45
+                    ],
 
-                pointRadius: 5,
-                pointHoverRadius: 8
-            }
-        ]
-    },
+                    borderColor: "#087d7e",
 
-    options: {
-        responsive: true,
+                    borderWidth: 3,
 
-        plugins: {
-            legend: {
-                labels: {
-                    color: "#0f172a",
-                    font: {
-                        size: 14,
-                        weight: "bold"
-                    }
+                    tension: 0.35
+
+                },
+
+                {
+
+                    label: "SO₂",
+
+                    data: [
+                        18,
+                        22,
+                        30,
+                        27,
+                        24
+                    ],
+
+                    borderColor: "#6da5c0",
+
+                    borderWidth: 3,
+
+                    tension: 0.35
+
                 }
-            },
 
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return " Gas Level: " + context.parsed.y;
-                    }
-                }
-            }
+            ]
+
         },
 
-        scales: {
-            y: {
-                beginAtZero: true,
-                suggestedMax: 50,
+        options: commonOptions
 
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "Gas Concentration",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            },
-
-            x: {
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "Time",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            }
-        }
     }
-});
-const historicalCtx = document.getElementById("historicalChart");
+);
 
-new Chart(historicalCtx, {
-    type: "line",
 
-    data: {
-        labels: [
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-            "Sun"
-        ],
+/* =========================================================
+   HISTORICAL AIR QUALITY
+   ========================================================= */
 
-        datasets: [
-            {
-    label: "Average AQI",
-    data: [82, 91, 76, 105, 118, 97, 88],
+new Chart(
+    document.getElementById("historicalChart"),
+    {
 
-    borderWidth: 3,
-    tension: 0.4,
+        type: "line",
 
-    fill: true,
+        data: {
 
-    backgroundColor: "rgba(57, 198, 189, 0.25)",
-    borderColor: "#03232d",
+            labels: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
 
-    pointBackgroundColor: "#39c6bd",
-    pointBorderColor: "#03232d",
-    pointRadius: 5,
-    pointHoverRadius: 7
-}
-        ]
-    },
+            datasets: [
 
-    options: {
-        responsive: true,
+                {
 
-        plugins: {
-            legend: {
-                labels: {
-                    color: "#0f172a",
-                    font: {
-                        size: 14,
-                        weight: "bold"
-                    }
+                    label: "AQI",
+
+                    data: [
+                        92,
+                        105,
+                        98,
+                        118,
+                        112,
+                        125,
+                        110
+                    ],
+
+                    borderColor: "#0fa9ad",
+
+                    backgroundColor:
+                        "rgba(15,159,156,0.18)",
+
+                    fill: true,
+
+                    borderWidth: 3,
+
+                    tension: 0.35,
+
+                    pointRadius: 5
+
                 }
-            },
 
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return " Average AQI: " + context.parsed.y;
-                    }
-                }
-            }
+            ]
+
         },
 
-        scales: {
-            y: {
-                beginAtZero: true,
-                suggestedMax: 130,
+        options: commonOptions
 
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "AQI Level",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            },
-
-            x: {
-                ticks: {
-                    color: "#0f172a",
-                    font: {
-                        size: 13,
-                        weight: "bold"
-                    }
-                },
-
-                title: {
-                    display: true,
-                    text: "Day",
-                    color: "#0f172a",
-                    font: {
-                        size: 15,
-                        weight: "bold"
-                    }
-                }
-            }
-        }
     }
-});
+);

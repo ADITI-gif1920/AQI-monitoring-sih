@@ -1,0 +1,1472 @@
+
+
+/* =========================================================
+   AIRGUARD OFFICER LOGIN
+   GOVERNMENT ENVIRONMENTAL ADMINISTRATIVE PORTAL
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #123b4a;
+
+    /* =====================================================
+       COAL MINING BACKGROUND
+       IMPORTANT:
+       officer login.css is inside /css/
+       image is inside /assets/
+       therefore ../assets/
+       ===================================================== */
+
+    background-image:
+        linear-gradient(
+            rgba(19, 65, 76, 0.62),
+            rgba(19, 65, 76, 0.62)
+        ),
+        url("../assets/images/coal mining background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   2. PAGE WRAPPER
+   ========================================================= */
+
+.officer-page,
+.officer-login-page,
+.login-page,
+.page-wrapper {
+    min-height: 100vh;
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   3. GOVERNMENT HEADER
+   ========================================================= */
+
+.gov-header {
+    min-height: 64px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 45, 58, 0.96),
+            rgba(0, 32, 43, 0.96)
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 5%;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    position: relative;
+    z-index: 20;
+}
+
+
+.gov-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.gov-emblem {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+}
+
+
+.gov-title {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+.gov-subtitle {
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color: #d6e8ec;
+}
+
+
+.official-access {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    color: #e8f5f7;
+}
+
+
+/* =========================================================
+   4. AIRGUARD BRAND HEADER
+   ========================================================= */
+
+.brand-header {
+    min-height: 78px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 5%;
+
+    box-shadow:
+        0 3px 15px
+        rgba(0, 0, 0, 0.14);
+
+    position: relative;
+
+    z-index: 15;
+}
+
+
+.brand-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.airguard-logo {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #edf8f3,
+            #cde9dc
+        );
+
+    border:
+        2px solid #39866a;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 4px 10px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+.airguard-name {
+    font-size: 27px;
+
+    font-weight: 800;
+
+    color: #123c50;
+
+    line-height: 1;
+}
+
+
+.airguard-tagline {
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: #526c76;
+
+    letter-spacing: 0.25px;
+}
+
+
+/* =========================================================
+   5. PORTAL BADGE
+   ========================================================= */
+
+.portal-badge {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 10px 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0f6f8,
+            #e5eef1
+        );
+
+    border:
+        1px solid #d8e5e9;
+
+    border-radius: 8px;
+}
+
+
+.portal-icon {
+    font-size: 25px;
+
+    color: #087083;
+}
+
+
+.portal-badge strong {
+    display: block;
+
+    color: #087083;
+
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+}
+
+
+.portal-badge span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    color: #49636e;
+}
+
+
+/* =========================================================
+   6. MAIN BACKGROUND AREA
+   ========================================================= */
+
+.login-background {
+    min-height: calc(100vh - 142px);
+
+    padding:
+        38px
+        4%
+        45px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    /* IMPORTANT:
+       Keep background transparent.
+       The image is on BODY. */
+
+    background: transparent !important;
+
+    overflow: hidden;
+}
+
+
+/* Additional soft overlay */
+
+.login-background::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 39, 48, 0.12),
+            rgba(7, 39, 48, 0.02),
+            rgba(7, 39, 48, 0.12)
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   7. MAIN TWO COLUMN LAYOUT
+   ========================================================= */
+
+.login-layout {
+    width: 100%;
+
+    max-width: 1040px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr
+        0.95fr;
+
+    gap: 28px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   8. LEFT PROFESSIONAL AUTHORITY PANEL
+   ========================================================= */
+
+.authority-panel {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 53, 68, 0.96),
+            rgba(0, 31, 43, 0.95)
+        );
+
+    border:
+        1px solid
+        rgba(96, 207, 219, 0.28);
+
+    border-radius: 14px;
+
+    padding:
+        34px
+        34px
+        28px;
+
+    color: white;
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* Decorative glow */
+
+.authority-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: -130px;
+    right: -110px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(65, 202, 216, 0.18),
+            transparent 68%
+        );
+
+    pointer-events: none;
+}
+
+
+.authority-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    bottom: -100px;
+    left: -80px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(33, 166, 180, 0.14),
+            transparent 68%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   9. PANEL LABEL
+   ========================================================= */
+
+.panel-label {
+    position: relative;
+
+    z-index: 2;
+
+    color: #59d5df;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+
+    margin-bottom: 12px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   10. PANEL HEADING
+   ========================================================= */
+
+.authority-panel h1 {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 32px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    color: white;
+
+    margin-bottom: 16px;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   11. PANEL DESCRIPTION
+   ========================================================= */
+
+.authority-description {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 500px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    color: #d7e9ed;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   12. AUTHORITY FEATURES
+   ========================================================= */
+
+.authority-feature {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 64px;
+
+    margin-bottom: 10px;
+
+    padding:
+        10px
+        12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border:
+        1px solid
+        rgba(75, 203, 217, 0.28);
+
+    background:
+        rgba(0, 81, 96, 0.40);
+
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.authority-feature:hover {
+    transform: translateX(4px);
+
+    background:
+        rgba(0, 103, 119, 0.55);
+
+    border-color:
+        rgba(88, 213, 225, 0.55);
+
+    box-shadow:
+        0 6px 18px
+        rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   13. FEATURE ICON
+   ========================================================= */
+
+.feature-icon {
+    width: 40px;
+
+    height: 40px;
+
+    min-width: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #078a9a,
+            #075f71
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    font-size: 18px;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.12);
+}
+
+
+/* =========================================================
+   14. FEATURE CONTENT
+   ========================================================= */
+
+.feature-content {
+    flex: 1;
+}
+
+
+.feature-content h3 {
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    margin-bottom: 3px;
+}
+
+
+.feature-content p {
+    color: #d5e7eb;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+.feature-arrow {
+    font-size: 20px;
+
+    color: #7ee1e7;
+
+    font-weight: 300;
+}
+
+
+/* =========================================================
+   15. AUTHORITY STATISTICS
+   ========================================================= */
+
+.authority-stats {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 14px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(67, 196, 211, 0.30);
+
+    border-radius: 9px;
+
+    background:
+        rgba(0, 66, 80, 0.42);
+}
+
+
+.stat {
+    padding:
+        13px
+        9px;
+
+    text-align: center;
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+
+.stat:last-child {
+    border-right: none;
+}
+
+
+.stat strong {
+    display: block;
+
+    color: white;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    margin-bottom: 3px;
+}
+
+
+.stat span {
+    display: block;
+
+    color: #cfe3e7;
+
+    font-size: 9px;
+
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   16. RIGHT LOGIN CARD
+   ========================================================= */
+
+.login-card {
+    position: relative;
+
+    background: #ffffff !important;
+
+    border-radius: 14px;
+
+    padding:
+        34px
+        34px;
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.30);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.9);
+
+    min-height: 560px;
+}
+
+
+/* =========================================================
+   17. SECURE ACCESS LABEL
+   ========================================================= */
+
+.secure-label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #087486;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    margin-bottom: 8px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   18. LOGIN HEADING
+   ========================================================= */
+
+.login-card h2 {
+    color: #10394b;
+
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    margin-bottom: 9px;
+}
+
+
+/* =========================================================
+   19. LOGIN DESCRIPTION
+   ========================================================= */
+
+.login-description {
+    color: #536b76;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    margin-bottom: 21px;
+}
+
+
+/* =========================================================
+   20. FORM GROUP
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+
+.form-group label {
+    display: block;
+
+    color: #244857;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   21. INPUT WRAPPER
+   ========================================================= */
+
+.input-wrapper {
+    height: 47px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        #cbd9df;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.input-wrapper:hover {
+    border-color: #9bb7c1;
+}
+
+
+.input-wrapper:focus-within {
+    border-color: #087f91;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(8, 127, 145, 0.11);
+}
+
+
+/* =========================================================
+   22. INPUT ICON
+   ========================================================= */
+
+.input-icon {
+    width: 43px;
+
+    min-width: 43px;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   23. INPUT FIELD
+   ========================================================= */
+
+.input-wrapper input {
+    flex: 1;
+
+    width: 100%;
+
+    height: 100%;
+
+    padding:
+        0
+        7px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #173d4d;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+}
+
+
+.input-wrapper input::placeholder {
+    color: #8799a1;
+}
+
+
+/* =========================================================
+   24. SHOW PASSWORD
+   ========================================================= */
+
+.show-password {
+    padding:
+        0
+        12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #087486;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.show-password:hover {
+    color: #064e5c;
+}
+
+
+/* =========================================================
+   25. LOGIN BUTTON
+   ========================================================= */
+
+.login-button {
+    width: 100%;
+
+    height: 47px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087b88,
+            #086674
+        );
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 90, 105, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.login-button:hover {
+    transform: translateY(-1px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #098b99,
+            #087080
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 90, 105, 0.30);
+}
+
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   26. LOGIN MESSAGE
+   ========================================================= */
+
+.login-message {
+    min-height: 18px;
+
+    margin-top: 9px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   27. AUTHORIZED ACCESS NOTICE
+   ========================================================= */
+
+.access-notice {
+    margin-top: 18px;
+
+    padding:
+        12px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2f8f6,
+            #edf6f4
+        );
+
+    border:
+        1px solid
+        #c9e3da;
+
+    border-left:
+        3px solid
+        #168f78;
+}
+
+
+.notice-icon {
+    font-size: 17px;
+
+    color: #3b856e;
+}
+
+
+.access-notice strong {
+    display: block;
+
+    color: #164a4c;
+
+    font-size: 11px;
+
+    margin-bottom: 3px;
+}
+
+
+.access-notice p {
+    color: #5d737b;
+
+    font-size: 9px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   28. RETURN TO PUBLIC PORTAL
+   ========================================================= */
+
+.return-link {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 19px;
+
+    color: #087486;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.return-link:hover {
+    text-decoration: underline;
+
+    color: #065766;
+}
+
+
+/* =========================================================
+   29. FOOTER
+   ========================================================= */
+
+.footer {
+    min-height: 52px;
+
+    padding:
+        10px
+        6%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #003847,
+            #002936
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   30. FORCE BACKGROUND THROUGH CONTAINERS
+   ========================================================= */
+
+.officer-login-container,
+.login-container,
+.main-container {
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   31. PREVENT WHITE PAGE OVERLAY
+   ========================================================= */
+
+main {
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   32. TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .login-layout {
+        max-width: 760px;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .authority-panel {
+        order: 2;
+    }
+
+
+    .login-card {
+        order: 1;
+
+        min-height: auto;
+    }
+
+
+    .login-background {
+        padding-top: 25px;
+
+        padding-bottom: 30px;
+
+        background: transparent !important;
+    }
+}
+
+
+/* =========================================================
+   33. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        background-attachment: scroll;
+
+        background-position: center;
+    }
+
+
+    .gov-header {
+        min-height: auto;
+
+        padding:
+            11px
+            5%;
+    }
+
+
+    .gov-emblem {
+        width: 34px;
+        height: 34px;
+
+        font-size: 23px;
+    }
+
+
+    .gov-title {
+        font-size: 11px;
+    }
+
+
+    .gov-subtitle {
+        font-size: 9px;
+    }
+
+
+    .official-access {
+        display: none;
+    }
+
+
+    .brand-header {
+        min-height: auto;
+
+        padding:
+            13px
+            5%;
+    }
+
+
+    .airguard-logo {
+        width: 43px;
+        height: 43px;
+
+        font-size: 22px;
+    }
+
+
+    .airguard-name {
+        font-size: 23px;
+    }
+
+
+    .airguard-tagline {
+        font-size: 9px;
+    }
+
+
+    .portal-badge {
+        display: none;
+    }
+
+
+    .login-background {
+        padding:
+            16px
+            13px
+            25px;
+    }
+
+
+    .authority-panel {
+        padding:
+            25px
+            20px;
+    }
+
+
+    .authority-panel h1 {
+        font-size: 26px;
+    }
+
+
+    .authority-description {
+        font-size: 12px;
+    }
+
+
+    .login-card {
+        padding:
+            25px
+            20px;
+
+        border-radius: 11px;
+    }
+
+
+    .login-card h2 {
+        font-size: 25px;
+    }
+
+
+    .authority-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .stat:nth-child(2) {
+        border-right: none;
+    }
+
+
+    .stat:nth-child(-n+2) {
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.12);
+    }
+
+
+    .footer {
+        flex-direction: column;
+
+        gap: 5px;
+
+        text-align: center;
+
+        padding:
+            13px;
+    }
+}
+
+
+/* =========================================================
+   34. VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .authority-panel h1 {
+        font-size: 23px;
+    }
+
+
+    .login-card h2 {
+        font-size: 23px;
+    }
+
+
+    .login-card {
+        padding:
+            22px
+            17px;
+    }
+
+
+    .authority-panel {
+        padding:
+            22px
+            17px;
+    }
+
+
+    .authority-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* =========================================================
+   FINAL COAL MINING BACKGROUND FIX
+   ========================================================= */
+
+/* Make sure the page itself does NOT hide the image */
+html,
+body {
+    margin: 0 !important;
+    min-height: 100% !important;
+}
+
+/* Put the coal image DIRECTLY on the login background area */
+.login-background {
+    position: relative !important;
+
+    background-image:
+        linear-gradient(
+            rgba(15, 47, 57, 0.48),
+            rgba(15, 47, 57, 0.48)
+        ),
+        url("../assets/images/coal mining background.png") !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+}
+
+/* Remove the extra overlay that can make the image difficult to see */
+.login-background::before {
+    display: none !important;
+}
+
+/* Keep the two cards above the photograph */
+.login-layout {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Left panel */
+.authority-panel {
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+/* Right login card */
+.login-card {
+    position: relative !important;
+    z-index: 6 !important;
+}

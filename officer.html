@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MineGuard | Officer Dashboard</title>
+
+    <!-- Officer Dashboard CSS -->
+   <link rel="stylesheet" href="css/officer.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         GOVERNMENT TOP BAR
+         ===================================================== -->
+
+    <header class="gov-topbar">
+
+        <div class="gov-left">
+
+            <div class="gov-emblem">
+                🏛️
+            </div>
+
+            <div>
+                <div class="gov-title">
+                    GOVERNMENT ENVIRONMENTAL MONITORING PORTAL
+                </div>
+
+                <div class="gov-subtitle">
+                    Environmental Protection & Pollution Control Authority
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="gov-right">
+
+            <span class="official-badge">
+                ● OFFICIAL PORTAL
+            </span>
+
+            <span class="secure-badge">
+                🔒 Secure Access
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         DASHBOARD WRAPPER
+         ===================================================== -->
+
+    <div class="dashboard-wrapper">
+
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+
+        <aside class="sidebar">
+
+            <!-- BRAND -->
+
+            <div class="sidebar-brand">
+
+                <div class="brand-logo">
+                    🌿
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        MineGuard
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Smart Environmental
+                        Monitoring System
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- OFFICER PROFILE -->
+
+            <div class="officer-profile">
+
+                <div class="profile-icon">
+                    👤
+                </div>
+
+                <div class="profile-details">
+
+                    <strong>Environmental Officer</strong>
+
+                    <span id="officerDisplay">
+                        Officer ID: admin
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+                <a href="admin-dashboard.html" class="nav-item">
+    <span>🏛️</span>
+    <span>Admin Dashboard</span>
+</a>
+
+                <div class="nav-heading">
+                    MAIN MENU
+                </div>
+
+                <a href="#dashboard"
+                   class="nav-item active">
+
+                    <span>📊</span>
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <a href="#complaints"
+                   class="nav-item">
+
+                    <span>📋</span>
+                    <span>Complaints</span>
+
+                    <span class="nav-count"
+                          id="sidebarComplaintCount">
+                        0
+                    </span>
+
+                </a>
+
+
+                <a href="#monitoring"
+                   class="nav-item">
+
+                    <span>🌍</span>
+                    <span>Environmental Monitoring</span>
+
+                </a>
+
+
+                <a href="#analytics"
+                   class="nav-item">
+
+                    <span>📈</span>
+                    <span>Analytics & Reports</span>
+
+                </a>
+
+
+                <div class="nav-heading second-heading">
+                    ADMINISTRATION
+                </div>
+
+
+                <a href="#alerts"
+                   class="nav-item">
+
+                    <span>🔔</span>
+                    <span>Alerts</span>
+
+                    <span class="alert-count">
+                        3
+                    </span>
+
+                </a>
+
+
+                <a href="#settings"
+                   class="nav-item">
+
+                    <span>⚙️</span>
+                    <span>Settings</span>
+
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>System Operational</strong>
+                        <small>All monitoring stations online</small>
+                    </div>
+
+                </div>
+
+
+                <button id="logoutBtn"
+                        class="logout-btn">
+
+                    🚪 Logout
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+
+        <main class="main-content">
+
+
+            <!-- TOP HEADER -->
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <div class="breadcrumb">
+                        HOME / OFFICER PORTAL
+                    </div>
+
+                    <h1>
+                        Officer Dashboard
+                    </h1>
+
+                    <p>
+                        Monitor environmental conditions,
+                        review citizen complaints and coordinate
+                        pollution-control actions.
+                    </p>
+
+                </div>
+
+
+                <div class="header-actions">
+
+                    <div class="live-indicator">
+
+                        <span></span>
+
+                        LIVE MONITORING
+
+                    </div>
+
+                    <div class="date-display"
+                         id="currentDate">
+
+                        Loading...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STAT CARDS
+                 ================================================= -->
+
+            <section class="stats-grid">
+
+
+                <!-- AQI -->
+
+                <div class="stat-card aqi-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon">
+                            🌫️
+                        </div>
+
+                        <span class="stat-label">
+                            CURRENT AQI
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-value"
+                         id="currentAQI">
+
+                        142
+
+                    </div>
+
+
+                    <div class="stat-location">
+                        📍 Bhubaneswar, Odisha
+                    </div>
+
+
+                    <div class="aqi-status">
+                        POOR AIR QUALITY
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLAINTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon blue">
+                            📋
+                        </div>
+
+                        <span class="stat-label">
+                            TOTAL COMPLAINTS
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-value"
+                         id="totalComplaints">
+
+                        0
+
+                    </div>
+
+
+                    <div class="stat-description">
+                        Citizen environmental reports
+                    </div>
+
+
+                    <div class="stat-link">
+                        View complaints →
+                    </div>
+
+                </div>
+
+
+                <!-- PENDING -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon orange">
+                            ⏳
+                        </div>
+
+                        <span class="stat-label">
+                            PENDING
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-value"
+                         id="pendingComplaints">
+
+                        0
+
+                    </div>
+
+
+                    <div class="stat-description">
+                        Reports requiring attention
+                    </div>
+
+
+                    <div class="warning-text">
+                        Requires action
+                    </div>
+
+                </div>
+
+
+                <!-- RESOLVED -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon green">
+                            ✓
+                        </div>
+
+                        <span class="stat-label">
+                            RESOLVED
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-value"
+                         id="resolvedComplaints">
+
+                        0
+
+                    </div>
+
+
+                    <div class="stat-description">
+                        Successfully completed cases
+                    </div>
+
+
+                    <div class="success-text">
+                        Response efficiency
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MONITORING SECTION
+                 ================================================= -->
+
+            <section class="content-grid"
+                     id="monitoring">
+
+
+                <!-- AQI MONITORING -->
+
+                <div class="dashboard-card monitoring-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                ENVIRONMENTAL MONITORING
+                            </span>
+
+                            <h2>
+                                Air Quality Status
+                            </h2>
+
+                        </div>
+
+                        <span class="online-badge">
+                            ● SENSOR ONLINE
+                        </span>
+
+                    </div>
+
+
+                    <div class="aqi-monitor">
+
+                        <div class="aqi-circle">
+
+                            <strong id="dashboardAQI">
+                                142
+                            </strong>
+
+                            <span>
+                                AQI
+                            </span>
+
+                        </div>
+
+
+                        <div class="aqi-details">
+
+                            <h3>
+                                Poor Air Quality
+                            </h3>
+
+                            <p>
+                                Current environmental conditions
+                                require monitoring and preventive
+                                action.
+                            </p>
+
+
+                            <div class="pollutant-row">
+
+                                <div>
+                                    <span>PM2.5</span>
+                                    <strong>68 µg/m³</strong>
+                                </div>
+
+                                <div>
+                                    <span>PM10</span>
+                                    <strong>112 µg/m³</strong>
+                                </div>
+
+                                <div>
+                                    <span>CO</span>
+                                    <strong>1.4 ppm</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ENVIRONMENTAL CONDITIONS -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                LIVE CONDITIONS
+                            </span>
+
+                            <h2>
+                                Environmental Data
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="environment-grid">
+
+
+                        <div class="environment-item">
+
+                            <span class="environment-icon">
+                                🌡️
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Temperature
+                                </small>
+
+                                <strong>
+                                    31°C
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="environment-item">
+
+                            <span class="environment-icon">
+                                💧
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Humidity
+                                </small>
+
+                                <strong>
+                                    68%
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="environment-item">
+
+                            <span class="environment-icon">
+                                💨
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Wind Speed
+                                </small>
+
+                                <strong>
+                                    12 km/h
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="environment-item">
+
+                            <span class="environment-icon">
+                                🌪️
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Dust Risk
+                                </small>
+
+                                <strong>
+                                    Moderate
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+                 ================================================= -->
+
+            <section class="dashboard-card quick-actions">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            OFFICER SERVICES
+                        </span>
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="action-grid">
+
+
+                    <a href="#complaints"
+                       class="action-card">
+
+                        <div class="action-icon">
+                            📋
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Manage Complaints
+                            </strong>
+
+                            <span>
+                                Review citizen reports
+                            </span>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a href="#monitoring"
+                       class="action-card">
+
+                        <div class="action-icon">
+                            🌍
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Monitor Pollution
+                            </strong>
+
+                            <span>
+                                View sensor conditions
+                            </span>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a href="#analytics"
+                       class="action-card">
+
+                        <div class="action-icon">
+                            📊
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                View Reports
+                            </strong>
+
+                            <span>
+                                Environmental analytics
+                            </span>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a href="#alerts"
+                       class="action-card">
+
+                        <div class="action-icon">
+                            🔔
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Check Alerts
+                            </strong>
+
+                            <span>
+                                Review important warnings
+                            </span>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+<section class="dashboard-card alerts-section" id="alerts">
+
+    <div class="card-header">
+
+        <div>
+            <span class="section-label">
+                ENVIRONMENTAL ALERT SYSTEM
+            </span>
+
+            <h2>
+                Active Pollution Alerts
+            </h2>
+
+            <p class="alerts-description">
+                Automated alerts generated from environmental
+                monitoring data.
+            </p>
+        </div>
+
+        <span class="alert-status-badge">
+            ● LIVE ALERTS
+        </span>
+
+    </div>
+
+    <div id="environmentAlerts" class="environment-alerts">
+    </div>
+
+    <div id="noAlerts" class="no-alerts">
+
+        <div class="no-alerts-icon">
+            ✓
+        </div>
+
+        <strong>
+            No Active Environmental Alerts
+        </strong>
+
+        <span>
+            Current environmental conditions are within
+            acceptable monitoring limits.
+        </span>
+
+    </div>
+
+</section>
+            <!-- =================================================
+                 COMPLAINT MANAGEMENT
+                 ================================================= -->
+
+            <!-- =================================================
+     COMPLAINT MANAGEMENT
+     ================================================= -->
+
+<section class="dashboard-card complaints-section"
+         id="complaints">
+
+    <div class="card-header">
+
+        <div>
+
+            <span class="section-label">
+                CITIZEN SERVICES
+            </span>
+
+            <h2>
+                Environmental Complaints
+            </h2>
+
+        </div>
+
+        <span class="complaint-record-count"
+              id="complaintCount">
+            0 Records
+        </span>
+
+    </div>
+
+
+    <!-- COMPLAINT TABLE -->
+
+    <div class="complaints-table-wrapper">
+
+        <table class="complaints-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Complaint ID</th>
+
+                    <th>Location</th>
+
+                    <th>Issue Type</th>
+
+                    <th>Date</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="complaintsTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- NO COMPLAINT MESSAGE -->
+
+    <div class="no-complaints"
+         id="noComplaints">
+
+        <div class="empty-icon">
+            📋
+        </div>
+
+        <h3>
+            No complaints available
+        </h3>
+
+        <p>
+            Citizen complaints submitted through
+            the AirGuard public portal will appear here.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     COMPLAINT DETAILS MODAL
+     ================================================= -->
+
+<div class="complaint-modal"
+     id="complaintModal">
+
+    <div class="complaint-modal-content">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="section-label">
+                    COMPLAINT DETAILS
+                </span>
+
+                <h2>
+                    Environmental Complaint
+                </h2>
+
+            </div>
+
+            <button id="closeModal"
+                    class="modal-close">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="complaint-details">
+
+            <div class="detail-item">
+
+                <span>Complaint ID</span>
+
+                <strong id="modalComplaintId">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Citizen Name</span>
+
+                <strong id="modalName">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Email</span>
+
+                <strong id="modalEmail">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Location</span>
+
+                <strong id="modalLocation">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Issue Type</span>
+
+                <strong id="modalType">
+                    --
+                </strong>
+
+            </div>
+
+        </div>
+
+        <!-- UPLOADED DUST / POLLUTION PHOTO -->
+
+<div class="complaint-photo-section">
+
+    <span class="photo-label">
+        Uploaded Environmental Photo
+    </span>
+
+    <div class="complaint-photo-container">
+
+        <img id="modalComplaintPhoto"
+             src=""
+             alt="Uploaded pollution evidence"
+             class="complaint-photo">
+
+        <div id="noComplaintPhoto"
+             class="no-complaint-photo">
+            📷 No photo uploaded
+        </div>
+
+    </div>
+
+</div>
+
+
+        <div class="description-box">
+
+            <span>
+                Complaint Description
+            </span>
+
+            <p id="modalDescription">
+                --
+            </p>
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="status-control">
+
+            <label for="modalStatus">
+                Update Complaint Status
+            </label>
+
+            <select id="modalStatus">
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="In Progress">
+                    In Progress
+                </option>
+
+                <option value="Resolved">
+                    Resolved
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <p id="statusMessage"
+           class="status-message">
+        </p>
+
+
+        <div class="modal-actions">
+
+            <button id="saveStatus"
+                    class="save-status-btn">
+
+                Save Status
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+            <!-- =================================================
+                 FOOTER
+                 ================================================= -->
+
+            <footer class="dashboard-footer">
+
+                <div>
+                    <strong>
+                        MineGuard
+                    </strong>
+
+                    Smart Environmental Monitoring System
+                </div>
+
+
+                <div>
+                    Government Environmental Monitoring Portal
+                    © 2026
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- Officer JavaScript -->
+    <script src="js/officer.js"></script>
+
+</body>
+
+</html>
