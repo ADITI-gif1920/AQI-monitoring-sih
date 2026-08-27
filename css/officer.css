@@ -2174,3 +2174,361 @@ font-size: 13px;
 .no-complaint-photo.hidden {
     display: none;
 }
+/* =====================================================
+   OFFICER SETTINGS
+===================================================== */
+
+.officer-settings {
+    scroll-margin-top: 30px;
+}
+
+.settings-container {
+    padding: 10px 32px 32px;
+    display: grid;
+    gap: 22px;
+}
+
+.settings-group {
+    padding: 24px;
+    border: 1px solid #dce8eb;
+    border-radius: 16px;
+    background: #f8fbfc;
+}
+
+.settings-group-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.settings-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #e4f5f2;
+
+    font-size: 22px;
+}
+
+.settings-group-header h3 {
+    margin: 0 0 5px;
+
+    color: #123f4c;
+
+    font-size: 19px;
+}
+
+.settings-group-header p {
+    margin: 0;
+
+    color: #6d858d;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   THEME OPTIONS
+===================================================== */
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 18px;
+
+    border: 2px solid #dce8eb;
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.theme-option:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(20, 70, 80, 0.08);
+}
+
+.theme-option.active {
+    border-color: #0aa89e;
+
+    background: #effaf8;
+
+    box-shadow:
+        0 5px 15px rgba(10, 168, 158, 0.10);
+}
+
+.theme-option-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #e7f5f3;
+
+    font-size: 20px;
+}
+
+.theme-option strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #143f4b;
+
+    font-size: 15px;
+}
+
+.theme-option small {
+    display: block;
+
+    color: #71878e;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.language-selector label {
+    color: #174452;
+
+    font-weight: 700;
+}
+
+.language-selector select {
+    min-width: 230px;
+
+    padding: 12px 15px;
+
+    border: 1px solid #cddfe3;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #173f4c;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+.language-selector select:focus {
+    border-color: #0aa89e;
+
+    box-shadow:
+        0 0 0 3px rgba(10, 168, 158, 0.10);
+}
+
+
+/* =====================================================
+   SYSTEM PREFERENCES
+===================================================== */
+
+.system-preference-list {
+    display: grid;
+    gap: 10px;
+}
+
+.preference-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #31535d;
+}
+
+.preference-row strong {
+    color: #173f4c;
+}
+
+.preference-active {
+    color: #0a9c78 !important;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode {
+    background: #101d22 !important;
+    color: #e7f3f4 !important;
+}
+
+body.dark-mode .main-content {
+    background: #101d22 !important;
+}
+
+body.dark-mode .dashboard-header h1,
+body.dark-mode .dashboard-header p,
+body.dark-mode .breadcrumb {
+    color: #e7f3f4 !important;
+}
+
+body.dark-mode .dashboard-card,
+body.dark-mode .stat-card {
+    background: #17282e !important;
+    border-color: #29434a !important;
+}
+
+body.dark-mode .dashboard-card h2,
+body.dark-mode .dashboard-card h3,
+body.dark-mode .stat-value,
+body.dark-mode .stat-label {
+    color: #edfafa !important;
+}
+
+body.dark-mode .dashboard-card p,
+body.dark-mode .stat-description {
+    color: #a9c0c5 !important;
+}
+
+body.dark-mode .settings-group {
+    background: #1d3036 !important;
+    border-color: #345058 !important;
+}
+
+body.dark-mode .settings-group-header h3 {
+    color: #eaf7f8 !important;
+}
+
+body.dark-mode .settings-group-header p {
+    color: #a9c0c5 !important;
+}
+
+body.dark-mode .theme-option {
+    background: #17282e !important;
+    border-color: #345058 !important;
+}
+
+body.dark-mode .theme-option strong {
+    color: #edfafa !important;
+}
+
+body.dark-mode .theme-option small {
+    color: #a9c0c5 !important;
+}
+
+body.dark-mode .theme-option.active {
+    background: #173d3d !important;
+    border-color: #18b5a7 !important;
+}
+
+body.dark-mode .language-selector label {
+    color: #eaf7f8 !important;
+}
+
+body.dark-mode .language-selector select {
+    background: #17282e !important;
+    color: #edfafa !important;
+    border-color: #345058 !important;
+}
+
+body.dark-mode .preference-row {
+    background: #17282e !important;
+    color: #c8dadd !important;
+}
+
+body.dark-mode .preference-row strong {
+    color: #edfafa !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .settings-container {
+        padding: 10px 20px 25px;
+    }
+
+    .theme-options {
+        grid-template-columns: 1fr;
+    }
+
+    .language-selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .language-selector select {
+        width: 100%;
+        min-width: 0;
+    }
+
+}
+/* =========================================
+   SYSTEM PREFERENCE TOGGLE BUTTONS
+   ========================================= */
+
+.setting-toggle {
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.setting-toggle.enabled {
+    color: #009b72;
+}
+
+.setting-toggle.disabled {
+    color: #d9534f;
+}
+
+.setting-toggle:hover {
+    background: rgba(0, 155, 114, 0.08);
+}
