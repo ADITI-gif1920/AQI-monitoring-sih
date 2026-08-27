@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MineGuard | Officer Settings</title>
+
+    <!-- SAME CSS AS OFFICER DASHBOARD -->
+    <link rel="stylesheet"
+          href="css/officer.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         GOVERNMENT TOP BAR
+         ===================================================== -->
+
+    <header class="gov-topbar">
+
+        <div class="gov-left">
+
+            <div class="gov-emblem">
+                🏛️
+            </div>
+
+            <div>
+
+                <div class="gov-title">
+                    GOVERNMENT ENVIRONMENTAL MONITORING PORTAL
+                </div>
+
+                <div class="gov-subtitle">
+                    Environmental Protection & Pollution Control Authority
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gov-right">
+
+            <span class="official-badge">
+                ● OFFICIAL PORTAL
+            </span>
+
+            <span class="secure-badge">
+                🔒 Secure Access
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         DASHBOARD WRAPPER
+         ===================================================== -->
+
+    <div class="dashboard-wrapper">
+
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+
+        <aside class="sidebar">
+
+
+            <!-- BRAND -->
+
+            <div class="sidebar-brand">
+
+                <div class="brand-logo">
+                    🌿
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        MineGuard
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Smart Environmental
+                        Monitoring System
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- OFFICER PROFILE -->
+
+            <div class="officer-profile">
+
+                <div class="profile-icon">
+                    👤
+                </div>
+
+                <div class="profile-details">
+
+                    <strong>
+                        Environmental Officer
+                    </strong>
+
+                    <span>
+                        Officer ID: admin
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NAVIGATION
+                 ================================================= -->
+
+            <nav class="sidebar-nav">
+
+
+                <!-- ADMIN DASHBOARD -->
+
+                <a href="admin-dashboard.html"
+                   class="nav-item">
+
+                    <span>🏛️</span>
+                    <span>Admin Dashboard</span>
+
+                </a>
+
+
+                <div class="nav-heading">
+                    MAIN MENU
+                </div>
+
+
+                <!-- OFFICER DASHBOARD -->
+
+                <a href="officer.html"
+                   class="nav-item">
+
+                    <span>📊</span>
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <!-- COMPLAINTS -->
+
+                <a href="officer.html#complaints"
+                   class="nav-item">
+
+                    <span>📋</span>
+                    <span>Complaints</span>
+
+                    <span class="nav-count"
+                          id="sidebarComplaintCount">
+                        0
+                    </span>
+
+                </a>
+
+
+                <!-- MONITORING -->
+
+                <a href="officer.html#monitoring"
+                   class="nav-item">
+
+                    <span>🌍</span>
+                    <span>Environmental Monitoring</span>
+
+                </a>
+
+
+                <!-- ANALYTICS -->
+
+                <a href="officer.html#analytics"
+                   class="nav-item">
+
+                    <span>📈</span>
+                    <span>Analytics & Reports</span>
+
+                </a>
+
+
+                <div class="nav-heading second-heading">
+                    ADMINISTRATION
+                </div>
+
+
+                <!-- ALERTS -->
+
+                <a href="officer.html#alerts"
+                   class="nav-item">
+
+                    <span>🔔</span>
+                    <span>Alerts</span>
+
+                    <span class="alert-count">
+                        3
+                    </span>
+
+                </a>
+
+
+                <!-- SETTINGS -->
+
+                <a href="officer-settings.html"
+                   class="nav-item active">
+
+                    <span>⚙️</span>
+                    <span>Settings</span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- =================================================
+                 SIDEBAR BOTTOM
+                 ================================================= -->
+
+            <div class="sidebar-bottom">
+
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            System Operational
+                        </strong>
+
+                        <small>
+                            All monitoring stations online
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button id="logoutBtn"
+                        class="logout-btn">
+
+                    🚪 Logout
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+                 ================================================= -->
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <div class="breadcrumb">
+                        HOME / OFFICER PORTAL / SETTINGS
+                    </div>
+
+                    <h1>
+                        Officer Settings
+                    </h1>
+
+                    <p>
+                        Manage officer dashboard appearance,
+                        language and system preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SETTINGS SECTION
+                 ================================================= -->
+
+            <section class="dashboard-card officer-settings"
+                     id="settings">
+
+
+                <!-- SETTINGS HEADER -->
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            ADMINISTRATION
+                        </span>
+
+                        <h2>
+                            Settings
+                        </h2>
+
+                        <p>
+                            Manage officer dashboard appearance
+                            and language preferences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     SETTINGS CONTAINER
+                     ================================================= -->
+
+                <div class="settings-container">
+
+
+                    <!-- =================================================
+                         APPEARANCE
+                         ================================================= -->
+
+                    <div class="settings-group">
+
+
+                        <div class="settings-group-header">
+
+                            <div class="settings-icon">
+                                🎨
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Appearance
+                                </h3>
+
+                                <p>
+                                    Choose how the MineGuard dashboard looks.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="theme-options">
+
+
+                            <!-- LIGHT MODE -->
+
+                            <button
+                                type="button"
+                                class="theme-option"
+                                id="lightModeBtn">
+
+                                <span class="theme-option-icon">
+                                    ☀️
+                                </span>
+
+                                <span>
+
+                                    <strong>
+                                        Light Mode
+                                    </strong>
+
+                                    <small>
+                                        Use the normal bright dashboard
+                                    </small>
+
+                                </span>
+
+                            </button>
+
+
+                            <!-- DARK MODE -->
+
+                            <button
+                                type="button"
+                                class="theme-option"
+                                id="darkModeBtn">
+
+                                <span class="theme-option-icon">
+                                    🌙
+                                </span>
+
+                                <span>
+
+                                    <strong>
+                                        Dark Mode
+                                    </strong>
+
+                                    <small>
+                                        Use a darker dashboard appearance
+                                    </small>
+
+                                </span>
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         LANGUAGE
+                         ================================================= -->
+
+                    <div class="settings-group">
+
+
+                        <div class="settings-group-header">
+
+                            <div class="settings-icon">
+                                🌐
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Language
+                                </h3>
+
+                                <p>
+                                    Select your preferred dashboard language.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="language-selector">
+
+
+                            <label for="languageSelect">
+                                Dashboard Language
+                            </label>
+
+
+                            <select id="languageSelect">
+
+                                <option value="en">
+                                    🇬🇧 English
+                                </option>
+
+                                <option value="hi">
+                                    🇮🇳 हिन्दी
+                                </option>
+
+                                <option value="bn">
+                                    🇮🇳 বাংলা
+                                </option>
+
+                            </select>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SYSTEM PREFERENCES
+                         ================================================= -->
+
+                    <div class="settings-group">
+
+
+                        <div class="settings-group-header">
+
+                            <div class="settings-icon">
+                                ⚙️
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    System Preferences
+                                </h3>
+
+                                <p>
+                                    Current MineGuard monitoring configuration.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="system-preference-list">
+
+
+                            <!-- SENSOR MONITORING -->
+
+                            <div class="settings-item">
+
+                                <span>
+                                    🔬 Sensor Monitoring
+                                </span>
+
+
+                                <button
+                                    id="sensorMonitoringToggle"
+                                    class="system-status enabled"
+                                    onclick="toggleSensorMonitoring()">
+
+                                    ACTIVE
+
+                                </button>
+
+                            </div>
+
+
+                            <!-- ENVIRONMENTAL ALERTS -->
+
+                            <div class="settings-item">
+
+                                <span>
+                                    🔔 Environmental Alerts
+                                </span>
+
+
+                                <button
+                                    id="environmentalAlertsToggle"
+                                    class="system-status enabled"
+                                    onclick="toggleEnvironmentalAlerts()">
+
+                                    ENABLED
+
+                                </button>
+
+                            </div>
+
+
+                            <!-- OFFICER ACCOUNT -->
+
+                            <div class="preference-row">
+
+                                <span>
+                                    👤 Officer Account
+                                </span>
+
+                                <strong>
+                                    admin
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FOOTER
+                 ================================================= -->
+
+            <footer class="dashboard-footer">
+
+
+                <div>
+
+                    <strong>
+                        MineGuard
+                    </strong>
+
+                    Smart Environmental Monitoring System
+
+                </div>
+
+
+                <div>
+
+                    Government Environmental Monitoring Portal
+                    © 2026
+
+                </div>
+
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         OFFICER JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/officer.js"></script>
+
+
+</body>
+
+</html>
